@@ -21,6 +21,8 @@ website:
             text: Analysis of Obama's Tweets (Proj2)
           - href: simulation.qmd
             text: Permutation Test (Proj3)
+          - href: Ethics_Blog.qmd
+            text: Analysis of Data Ethics 
         
             
 
