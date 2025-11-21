@@ -23,7 +23,7 @@ website:
             text: Permutation Test (Proj3)
           - href: Ethics_Blog.qmd
             text: Analysis of Data Ethics 
-          - href: proj5.qmd
+          - href: Proj5.qmd
             text: SQL Visualization (Proj5)
         
             

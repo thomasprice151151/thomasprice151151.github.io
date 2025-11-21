@@ -1,12 +1,14 @@
 ---
 title: "Racial Disparities in Police Search Practices Across Three California Cities"
+subtitle: "A comparative analysis of racial disparities in police search practices across three major California cities."
 description: |
   In this project, I will use traffic stop data collected from California Police agencies. The cities I look to examine are San Francisco, San Diego, and San Jose. The goal is to examine racial inequities and disparities in search behavior and contraband "hit" rates. I initially planned to compare Los Angeles as well; however, LA was underreported and did not contain key information like the driver's race. Through the use of SQL, I compare stop rates, specifically how different races are searched after a stop, and how frequently those searches actually find contraband. Next, I contrast patterns across cities to see whether some agencies search more aggressively but with lower success rates. The ultimate goal is to understand if search practices are applied evenly across racial groups and jurisdictions.
+
 format:
   html:
     css: style.css
     code-fold: true
-subtitle: "A comparative analysis of racial disparities in police search practices across three major California cities. Using SQL and real traffic-stop data, this project uncovers how search frequency and effectiveness differ by race and jurisdiction."
+
 about:
   template: jolla
   image: images/police.jpeg
@@ -17,6 +19,7 @@ execute:
   warning: false
   message: false
 ---
+
 [View Original Data Set Here](https://openpolicing.stanford.edu/data/)
 
 Reference:
