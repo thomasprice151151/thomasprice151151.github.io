@@ -10,6 +10,7 @@ format:
     embed-resources: true
     css: style.css
     code-fold: true
+    footer: "Return back to the main website through this [link](https://thomasprice151151.github.io/)"
 execute:
   echo: true
   warning: false
@@ -22,6 +23,10 @@ execute:
   <img src="images/Obama.jpeg" width="200"/>
   <img src="images/Trump.jpeg" width="200"/>
 </div>
+
+::: footer
+Return back to the main website through this [link](https://thomasprice151151.github.io/).
+:::
 
 **Goal: **
 
@@ -45,6 +50,10 @@ Analyze how Barack Obama and Donald Turmp used Twitter as communication tools du
   </figure>
 </div>
 
+::: footer
+Return back to the main website through this [link](https://thomasprice151151.github.io/).
+:::
+
 ## Obama's Twitter Usage
 
 
@@ -60,6 +69,10 @@ Analyze how Barack Obama and Donald Turmp used Twitter as communication tools du
 - **42%** contained links  
 - **12.5%** directed users to government websites  
 - Common domains: *whitehouse.gov*, *healthcare.gov*, *vote.gov*
+
+::: footer
+Return back to the main website through this [link](https://thomasprice151151.github.io/).
+:::
 
 ## Trumps Twitter Usage 
 
@@ -93,6 +106,9 @@ Analyze how Barack Obama and Donald Turmp used Twitter as communication tools du
 **Analysis**  
 Trump used Twitter as a personal broadcast and media amplifier, rather than as a channel for directing people to official government information. 
 
+::: footer
+Return back to the main website through this [link](https://thomasprice151151.github.io/).
+:::
 
 ## Comparing Obama and Trump's Twitter Usage 
 
