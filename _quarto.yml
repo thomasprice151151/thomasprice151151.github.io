@@ -11,7 +11,7 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - text: Data Visualization 
+      - text: Project Portfolio
         menu:
           - href: tidygas.qmd
             text: Analysis of US Gas Prices

@@ -1,6 +1,6 @@
 ---
-title: "Analysis of Obama's Tweets"
-subtitle: "Ananlyzing Obama's Tweets through the last two years of his presidency"
+title: "Analysis of Obama and Trump's Tweets"
+subtitle: "Ananlyzing Obama's Tweets through the last two years of his presidency and comparing it to Trump's use of Twitter"
 description: |
   Obama gained access to Twitter on May 18, 2015, roughly two years before leaving office. Since then, the platform has become an increasingly important tool for elected officials to share information with the public. This analysis examines the content of his tweets, focusing specifically on those that contained links to government resources. 
   Similarly, the project extends this analysis to Donald Trump’s first presidency, comparing how he used Twitter to communicate with the public and whether his tweets directed users to official government sources. Overall, the project aims to evaluate how each administration leveraged social media as a channel for public information versus political messaging. 
