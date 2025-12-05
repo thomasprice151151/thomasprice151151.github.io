@@ -46,7 +46,7 @@
     "href": "Presentation.html#introduction",
     "title": "Analyzing Presidential Twitter Use: Obama vs. Trump",
     "section": "Introduction",
-    "text": "Introduction\n\n \n\n\nReturn back to the main website through this link.\n\nGoal: \nAnalyze how Barack Obama and Donald Turmp used Twitter as communication tools during their presidencies."
+    "text": "Introduction\n\n \n\n\nReturn back to the main website through this link.\n\nGoal: \nAnalyze how Barack Obama and Donald Turmp used Twitter as communication tools during their presidencies.\n\nReturn back to the main website through this link."
   },
   {
     "objectID": "Presentation.html#approach",
@@ -67,21 +67,21 @@
     "href": "Presentation.html#trumps-twitter-usage",
     "title": "Analyzing Presidential Twitter Use: Obama vs. Trump",
     "section": "Trumps Twitter Usage",
-    "text": "Trumps Twitter Usage\n\n\n\n\nSummary of Trump’s tweet volume and link usage\n\n\n\n\n\nTweets containing .gov links during Trump’s first term\n\n\n\n\nKey Findings - Tweeted over 23,000 times during his first term\n- About 50% of tweets contained at least one link\n- Only 5 tweets (0.02%) linked to .gov sites\n- Most links pointed to media outlets or campaign-related pages, not government resources\nAnalysis\nTrump used Twitter as a personal broadcast and media amplifier, rather than as a channel for directing people to official government information.\n\nReturn back to the main website through this link."
+    "text": "Trumps Twitter Usage\n\n\n\n\nSummary of Trump’s tweet volume and link usage\n\n\n\n\n\nTweets containing .gov links during Trump’s first term\n\n\n\n\n\nReturn back to the main website through this link.\n\nKey Findings - Tweeted over 23,000 times during his first term\n- About 50% of tweets contained at least one link\n- Only 5 tweets (0.02%) linked to .gov sites\n- Most links pointed to media outlets or campaign-related pages, not government resources\nAnalysis\nTrump used Twitter as a personal broadcast and media amplifier, rather than as a channel for directing people to official government information.\n\nReturn back to the main website through this link."
   },
   {
     "objectID": "Presentation.html#comparing-obama-and-trumps-twitter-usage",
     "href": "Presentation.html#comparing-obama-and-trumps-twitter-usage",
     "title": "Analyzing Presidential Twitter Use: Obama vs. Trump",
     "section": "Comparing Obama and Trump’s Twitter Usage",
-    "text": "Comparing Obama and Trump’s Twitter Usage\n\n \n\n\nKey Comparison Findings\n- Obama: 321 tweets, 42% contained links, 12.5% led to .gov sites\n- Trump: 23,000 tweets, 50% contained links, only 0.02% led to .gov sites\n- Obama’s communication emphasized official information and public resources\n- Trump’s Twitter focused on personal messaging, media reactions, and direct engagement"
+    "text": "Comparing Obama and Trump’s Twitter Usage\n\n \n\n\nKey Comparison Findings\n- Obama: 321 tweets, 42% contained links, 12.5% led to .gov sites\n- Trump: 23,000 tweets, 50% contained links, only 0.02% led to .gov sites\n- Obama’s communication emphasized official information and public resources\n- Trump’s Twitter focused on personal messaging, media reactions, and direct engagement\n\nReturn back to the main website through this link."
   },
   {
     "objectID": "Presentation.html#thank-you",
     "href": "Presentation.html#thank-you",
     "title": "Analyzing Presidential Twitter Use: Obama vs. Trump",
     "section": "Thank You!",
-    "text": "Thank You!\nSources:\nRefrence 1 : The data used in this analysis comes from the National Archives, which maintains a full record of Barack Obama’s tweets during his presidency. The dataset was downloaded as a CSV file and stored locally for analysis.\nRefrence 2: Mark Hershey compiled the dataset of Trump’s Tweets and they are stored in his github linked below. Original Dataset for Trumps Tweets\nOriginal Source: “Archived White House Websites and Social Media | Barack Obama Presidential Library.” Obamalibrary.gov, 2017, www.obamalibrary.gov/digital-research-room/archived-white-house-websites-and-social-media. Accessed 4 Dec. 2025.\n“CompleteTrumpTweetsArchive/Data/RealDonaldTrump_in_office.csv at Master · MarkHershey/CompleteTrumpTweetsArchive.” GitHub, 2025, github.com/MarkHershey/CompleteTrumpTweetsArchive/blob/master/data/realDonaldTrump_in_office.csv. Accessed 4 Dec. 2025."
+    "text": "Thank You!\nSources:\nRefrence 1 : The data used in this analysis comes from the National Archives, which maintains a full record of Barack Obama’s tweets during his presidency. The dataset was downloaded as a CSV file and stored locally for analysis.\nRefrence 2: Mark Hershey compiled the dataset of Trump’s Tweets and they are stored in his github linked below. Original Dataset for Trumps Tweets\nOriginal Source: “Archived White House Websites and Social Media | Barack Obama Presidential Library.” Obamalibrary.gov, 2017, www.obamalibrary.gov/digital-research-room/archived-white-house-websites-and-social-media. Accessed 4 Dec. 2025.\n“CompleteTrumpTweetsArchive/Data/RealDonaldTrump_in_office.csv at Master · MarkHershey/CompleteTrumpTweetsArchive.” GitHub, 2025, github.com/MarkHershey/CompleteTrumpTweetsArchive/blob/master/data/realDonaldTrump_in_office.csv. Accessed 4 Dec. 2025.\n\nReturn back to the main website through this link."
   },
   {
     "objectID": "billboard_t100.html",

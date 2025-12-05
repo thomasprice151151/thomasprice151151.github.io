@@ -32,6 +32,9 @@ Return back to the main website through this [link](https://thomasprice151151.gi
 
 Analyze how Barack Obama and Donald Turmp used Twitter as communication tools during their presidencies. 
 
+::: footer
+Return back to the main website through this [link](https://thomasprice151151.github.io/).
+:::
 
 ## Approach
 **Strategy: **
@@ -97,6 +100,10 @@ Return back to the main website through this [link](https://thomasprice151151.gi
 
 <br>
 
+::: footer
+Return back to the main website through this [link](https://thomasprice151151.github.io/).
+:::
+
 **Key Findings**
 - Tweeted over **23,000 times** during his first term  
 - About **50%** of tweets contained at least one link  
@@ -125,6 +132,9 @@ Key Comparison Findings
 - Obama’s communication emphasized official information and public resources  
 - Trump’s Twitter focused on personal messaging, media reactions, and direct engagement  
 
+::: footer
+Return back to the main website through this [link](https://thomasprice151151.github.io/).
+:::
 ## Thank You!
 
 Sources: 
@@ -142,5 +152,7 @@ Sources:
 
 “CompleteTrumpTweetsArchive/Data/RealDonaldTrump_in_office.csv at Master · MarkHershey/CompleteTrumpTweetsArchive.” GitHub, 2025, github.com/MarkHershey/CompleteTrumpTweetsArchive/blob/master/data/realDonaldTrump_in_office.csv. Accessed 4 Dec. 2025.
 
-
+::: footer
+Return back to the main website through this [link](https://thomasprice151151.github.io/).
+:::
 
