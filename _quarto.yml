@@ -14,21 +14,25 @@ website:
       - text: Data Visualization 
         menu:
           - href: tidygas.qmd
-            text: US Gas Prices
+            text: Analysis of US Gas Prices
           - href: billboard_t100.qmd
-            text: Billboard Top 100 
+            text: Visualizing the Billboard Top 100 
           - href: Proj2.qmd
-            text: Analysis of Obama's Tweets (Proj2)
+            text: Analysis of Obama's Tweets
           - href: simulation.qmd
-            text: Permutation Test (Proj3)
+            text: Permutation Test:GDP and Life Expectancy
           - href: Ethics_Blog.qmd
             text: Analysis of Data Ethics 
           - href: Proj5.qmd
-            text: SQL Visualization (Proj5)
+            text: SQL Analysis of Racial Disparities in Police Searches
+          - href: Thesis.qmd
+            text: Using R in my Thesis Prospectus 
+          - href: Presentation.qmd
+            text: Examining Twitter Usage Across Presidential Administrations
         
             
 
 format:
   html:
-    theme: mint
+    theme: minty
     toc: true

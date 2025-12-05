@@ -26,6 +26,8 @@ execute:
 ```{r}
 #| message: false
 #| warning: false
+#| fig-alt: "A horizontal bar chart showing the top 10 artists by number of Billboard Hot 100 songs between 1958 and 2025. The Beatles lead with 20 songs, followed by Mariah Carey with 16, and Madonna with 12. Other artists include Whitney Houston, Michael Jackson, The Supremes, Taylor Swift, Janet Jackson, Bee Gees, and Stevie Wonder."
+
 
 library(tidyverse)
 
@@ -53,6 +55,8 @@ ggplot(top10_artists, aes(x = reorder(artist, n), y = n)) +
   theme_minimal()
 
 ```
+
+The figure above highlights the artists with the most Billboard Hot 100 songs between 1958 and 2025. The Beatles lead with 20 entries, followed by Mariah Carey and Madonna. The chart showcases how a small minority of influential artists have dominated popular music across decades. Overall, it dictates the lasting impact of these artists and illistrates the evolution of popular music over time. 
 
 [image source: Wikipedia](https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_chart_achievements_and_milestones)
 

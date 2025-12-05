@@ -2,24 +2,31 @@
 title: "Analysis of Obama's Tweets"
 subtitle: "Ananlyzing Obama's Tweets through the last two years of his presidency"
 description: |
-  Obama was granted access to Twitter on May 18, 2015, roughly two years before he left office. Since then, Twitter has been used as a vehicle to disseminate information by elected officials at a rapidly growing rate. This analysis focuses on the content of his tweets, specifically examining which tweets contained links to government resources.
+  Obama gained access to Twitter on May 18, 2015, roughly two years before leaving office. Since then, the platform has become an increasingly important tool for elected officials to share information with the public. This analysis examines the content of his tweets, focusing specifically on those that contained links to government resources. 
+  Similarly, the project extends this analysis to Donald Trump’s first presidency, comparing how he used Twitter to communicate with the public and whether his tweets directed users to official government sources. Overall, the project aims to evaluate how each administration leveraged social media as a channel for public information versus political messaging. 
   
-  Refrence: The data used in this analysis comes from the [National Archives](https://www.obamalibrary.gov/digital-research-room/archived-white-house-websites-and-social-media), which maintains a full record of Barack Obama’s tweets during his presidency. The dataset was downloaded as a CSV file and stored locally for analysis.
+  Refrence 1 : The data used in this analysis comes from the [National Archives](https://www.obamalibrary.gov/digital-research-room/archived-white-house-websites-and-social-media), which maintains a full record of Barack Obama’s tweets during his presidency. The dataset was downloaded as a CSV file and stored locally for analysis.
+  
+  Refrence 2: Mark Hershey compiled the dataset of Trump's Tweets and they are stored in his github linked below. 
+  [Original Dataset for Trumps Tweets](https://github.com/MarkHershey/CompleteTrumpTweetsArchive/blob/master/data/realDonaldTrump_in_office.csv) 
+  
 format:
   html:
     css: style.css
     code-fold: true
 about:
  template: jolla
- image: images/Obama.jpeg
- image-shape: rectangle
- image-width: 17em
+execute:
+  warning: false
+  message: false 
 
 ---
+<div style="display: flex; justify-content: center; gap: 2em;">
+  <img src="images/Obama.jpeg" width="250"/>
+  <img src="images/Trump.jpeg" width="250"/>
+</div>
 
 ```{r}
-#| warning: false
-#| message: false
 
 library(tidyverse)
 library(stringr)
@@ -41,13 +48,10 @@ head(tweets)
 
 ```
 
-The above graph is the data taken from the National Archives of Obama's tweets. He had a total of 325 tweets through is 2 year Twitter tenure. Moving forward, we will continue to clean the data to identify what the nature of his tweets where, specifically targeting those that had links in them. This specific table shows, the date of the tweet, the source, the text of the tweet, if it was re-tweeted, and any urls within the tweet. The cleaning function we did removes any rows where the tweet text is missing, and does some basic cleaning by making all the text lowercase and getting rid of any line breaks. 
+The table above uses data from the National Archives containing Obama’s tweets during his presidency. He posted a total of 325 tweets over his two-year tenure on Twitter. The next step in the analysis involves cleaning the data to better understand the nature of his tweets, with a focus on those containing links. This table displays each tweet’s date, source, text, retweet status, and any associated URLs. The cleaning process removes rows with missing text and standardizes the remaining data by converting all text to lowercase and eliminating line breaks.
 
 ```{r}
 # Identifying tweets that contain links and government links. 
-
-#| warning: false
-#| message: false
 
 
 library(tidyverse)
@@ -57,9 +61,10 @@ tweets_table <- tweets |>
   mutate(
     created_at = timestamp,
     has_link = !is.na(expanded_urls),
-
-    gov_link = str_detect(expanded_urls, "(?<=https?://)[^\\s]*\\.gov"), has_http_in_text = str_detect(text, "https?://[^\\s]+")) |>
-     select(created_at, text, has_link, gov_link, has_http_in_text)
+    gov_link = str_detect(expanded_urls,
+    "(?<=https?://)[^\\s]*\\.gov"), 
+    has_http_in_text = str_detect(text, "https?://[^\\s]+")) |>
+  select(created_at, text, has_link, gov_link, has_http_in_text)
 
 
 
@@ -67,10 +72,6 @@ tweets_table <- tweets |>
 
 ```{r}
 #Creating a new table with those links 
-#| warning: false
-#| message: false
-
-
 tweets_table |>
   summarise(
     total_tweets = n(),
@@ -82,9 +83,6 @@ tweets_table |>
 This table showcases the total number of tweets that Obama posted during his short Twitter tenure. The table highlights tweets that contained links, and further identifies the percentage of those links that directed users to government websites. We can see that there were a total of 321 tweets, 135 of which contained links (42%). Among those tweets, 12.5% included links to government websites.
 ```{r}
 #Visualizing which tweets contained links vs Gov links
-#| warning: false
-#| message: false
-
 
 library(lubridate)
 library(ggplot2)
@@ -108,5 +106,229 @@ ggplot(links_summary, aes(x = type, y = count, fill = type)) +
 
 ```
 
-The graph above showcases that table data above. We can see the total amount of tweets that contained links, and the total amount that contained government links. As seen only a small percentage where gov links. Given that Twitter is a relatively new medium to disseminate critical information, I would like to do further analysis to see if more recent officials have used it to push government resources. Ultimately comparing usage across different administrations. 
+The graph above visualizes the data from the previous table, showing the total number of tweets that contained links and the subset that included government links. Only a small percentage of tweets directed users to .gov websites. Since Twitter is a relatively new platform for sharing official information, it would be interesting to compare how more recent administrations have used it to promote government resources and public communication.
+
+
+
+```{r}
+tweets_table <- tweets |>
+  mutate(
+    created_at = timestamp,
+    has_link = !is.na(expanded_urls),
+    gov_link = str_detect(expanded_urls, "(?<=https?://)[^\\s]*\\.gov"),
+    has_http_in_text = str_detect(text, "https?://[^\\s]+")
+  ) |>
+  select(created_at, text, expanded_urls, has_link, gov_link, has_http_in_text)
+```
+
+The code above isolates all of Obama’s tweets that contain .gov links and extracts the specific government domain from each URL. It then counts how many times each unique domain appears to identify which sites he referenced most frequently. The resulting table shows that Obama’s tweets most often linked to official government pages such as whitehouse.gov, emphasizing his use of Twitter to share verified information and policy resources.
+
+```{r}
+library(stringr)
+library(dplyr)
+
+gov_domains <- tweets_table |>
+  filter(gov_link, !is.na(expanded_urls)) |>
+  
+  mutate(urls = strsplit(expanded_urls, "\\s+")) |>   # If a tweet has several URLs, split them so each is counted
+  tidyr::unnest(urls) |>
+  mutate(domain = str_extract(urls, "(?<=://)[^/]+"),
+         domain = str_remove(domain, "^www\\.")) |>
+  filter(str_detect(domain, "\\.gov$")) |>
+  count(domain, sort = TRUE)
+
+head(gov_domains, 10)
+```
+
+This table lists the government websites most frequently linked in Obama’s tweets. The majority of links directed users to go.wh.gov, a shortened White House domain used to share official announcements and press materials. Other links point to various federal resources such as HealthCare.gov, FAFSA.gov, and Vote.gov, reflecting Obama’s efforts to promote public programs and civic engagement through his social media presence.
+
+
+Reading and Cleaning Trumps Tweets: 
+
+```{r}
+library(tidyverse)
+
+# Read the CSV from GitHub
+trump <- read_csv("https://raw.githubusercontent.com/MarkHershey/CompleteTrumpTweetsArchive/refs/heads/master/data/realDonaldTrump_in_office.csv")
+
+
+head(trump)
+```
+```{r}
+names(trump)
+```
+
+Re-naming the columns of Trumps tweets so they match that of Obama's
+```{r}
+library(tidyverse)
+library(stringr)
+library(lubridate)
+
+trump_clean <- trump |>
+  rename(
+    id        = ID,
+    timestamp = Time,
+    tweet_url = `Tweet URL`,
+    text      = `Tweet Text`
+  )
+
+head(trump_clean)
+
+
+```
+Cleaning the Tweets: making them all lowercase and removing line breaks
+```{r}
+trump_tweets <- trump_clean |>
+  filter(!is.na(text)) |>
+  mutate(
+    text_lower  = str_to_lower(text),
+    text_noline = str_replace_all(text_lower, "[\r\n]", " ")
+  )
+
+head(trump_tweets)
+
+```
+
+Creating a table with gov links
+
+```{r}
+trump_tweets_table <- trump_tweets |>
+  mutate(
+    created_at = timestamp,
+    has_link   = str_detect(text, "https?://[^\\s]+"),
+    gov_link   = str_detect(text, "(?<=https?://)[^\\s]*\\.gov")
+  ) |>
+  select(created_at, text, has_link, gov_link)
+
+head(trump_tweets_table)
+
+```
+
+Summary of the table that shows total amount of tweets containing gov links 
+
+```{r}
+trump_summary <- trump_tweets_table |>
+  summarise(
+    total_tweets     = n(),
+    with_links       = sum(has_link),
+    pct_with_links   = mean(has_link),
+    pct_gov_of_links = mean(gov_link[has_link], na.rm = TRUE)
+  )
+
+trump_summary
+
+```
+The table above shows the total number of tweets that Trump posted during his first term. Crucially, it shows the percentage that contained links (50%) and, of those, how many directed users to government websites (0.0004%).
+
+Extracting URL's from the tweets
+```{r}
+library(tidyverse)
+library(stringr)
+
+trump_links <- trump_tweets_table |>
+  filter(has_link) |>
+  mutate(
+    urls = str_extract_all(text, "https?://[^\\s]+")  # extract all URLs
+  ) |>
+  unnest(urls)  
+
+head(trump_links)
+
+```
+
+Isolating Gov Links
+
+```{r}
+trump_gov_links <- trump_links |>
+  filter(str_detect(urls, "(?<=https?://)[^\\s]*\\.gov")) |>
+  mutate(
+    domain = str_extract(urls, "(?<=://)[^/]+"),    
+    domain = str_remove(domain, "^www\\.")          
+  )
+
+head(trump_gov_links)
+
+```
+Visualizing top government domains
+
+```{r}
+trump_gov_domains <- trump_gov_links |>
+  count(domain, sort = TRUE)
+
+trump_gov_domains
+
+```
+
+
+
+Comparing Trump's Twitter usage to Obama's
+
+```{r}
+# Combine both presidents' summaries
+
+# Obama counts
+obama_counts <- tweets_table |>
+  summarise(
+    total_tweets = n(),
+    gov_links    = sum(gov_link, na.rm = TRUE)
+  ) |>
+  mutate(president = "Obama")
+
+# Trump counts
+trump_counts <- trump_tweets_table |>
+  summarise(
+    total_tweets = n(),
+    gov_links    = sum(gov_link, na.rm = TRUE)
+  ) |>
+  mutate(president = "Trump")
+
+# Combine into one table
+comparison_counts <- bind_rows(obama_counts, trump_counts) |>
+  select(president, total_tweets, gov_links)
+
+comparison_counts <- comparison_counts |>
+  mutate(
+    pct_gov_links = (gov_links / total_tweets) * 100
+  )
+
+comparison_counts
+
+
+
+```
+
+Plotting the percentage delta 
+```{r}
+library(ggplot2)
+
+ggplot(comparison_counts, aes(x = president, y = gov_links, fill = president)) +
+  geom_col(width = 0.6) +
+  geom_text(aes(label = paste0(round(pct_gov_links, 2), "%")),
+            vjust = -0.5, size = 4) +
+  labs(
+    title = "Tweets Containing .Gov Links as a Share of Total Tweets",
+    x = NULL,
+    y = "Number of Tweets"
+  ) +
+  scale_fill_manual(values = c("steelblue", "darkred")) +
+  theme_minimal()
+
+```
+
+
+Donald Trump’s use of Twitter is vastly different from that of his predecessors. Over the course of his first term (2016 - 2020), Trump tweeted more than 23,000 times, often using the platform as his main form of disseminating information to the public. However, among those 23,000 tweets, only 5 contained direct links to government resources (0.02%). 
+
+In comparison to Obama, who used Twitter as a vehicle to distribute institutional communication, often linking verified government resources like WhiteHouse.gov or HealthCare.gov. Trump's feed was often comprised of commentary, reactions, and amplification of external media sources. His use of the platform reflected his style of immediacy and opinion, directly engaging with his audience rather than supplying vital information during a crisis like COVID. 
+
+The quantitative difference between the two reflects a broader stylistic and strategic contrast. Obama used his Twitter as a strategic governance tool, and Trump used it as a personal broadcasting platform. Despite the absolute prolific amount of tweets, the near absence of .gov links showcases a shift from institutional communication to personal rhetoric, which in turn became a defining attribute of his administration. 
+
+
+
+
+
+Original Source: “Archived White House Websites and Social Media | Barack Obama Presidential Library.” Obamalibrary.gov, 2017, www.obamalibrary.gov/digital-research-room/archived-white-house-websites-and-social-media. Accessed 4 Dec. 2025.
+
+“CompleteTrumpTweetsArchive/Data/RealDonaldTrump_in_office.csv at Master · MarkHershey/CompleteTrumpTweetsArchive.” GitHub, 2025, github.com/MarkHershey/CompleteTrumpTweetsArchive/blob/master/data/realDonaldTrump_in_office.csv. Accessed 4 Dec. 2025.
+
+
 

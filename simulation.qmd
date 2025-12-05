@@ -6,15 +6,13 @@ description: |
   This project uses data from the Gapminder dataset. I perform a permutation test to evaluate whether the observed correlation between life expectancy and GDP per capita is stronger than what would be expected by chance within each continent.
  
  
- The question I hope to answer is: Does higher life expectancy always imply higher GDP per capita? 
+ The question I hope to answer is:
+  In the broader population of countries similar to those in the 2007 Gapminder data, is GDP per capita associated with life expectancy?
+
+  Null hypothesis (H₀): In the population, GDP per capita and life expectancy are unrelated. Meaning, the true slope in a regression of life expectancy on GDP per capita is 0 within each continent. Any pattern we see in the sample arises from natural country-to-country fluctuation.
+  Alternative hypothesis (H₁): In the population, countries with higher GDP per capita tend to have simerlaly higher life  expectancy (non-zero slope). The association we see is stronger than what would be expected from random variation alone.
  
- The Null Hypothesis would be: Any relationship between life expectancy and GDP per capita is due to chance, that is, life expectancy does not predict income. 
-  - Knowing a countires life expectancy does not help in the prediction of its GDP per capita
- 
- The Alternative Hypothesis would be: Countries with higher life expectancy tend to have systematically higher (or lower) GDP per capita. In other words, the relationship is real, not random.
- - Countries with deviations in life expetency, whether possitive or negative tend to have systematically differnt GDP levels. The slope is meaningfully different from zero
- 
- This study will use the slope of this comparison as the test statistic. The slope in this case measures the direction of association, meaning if the slope is positive, that should indicate higher life expectancy and higher GDP. The steeper the slope, the stronger the link. Under the null hypothesis, when life expectancy values are shuffled randomly among countries, the slope should average around zero. If the observed slope is far from this null distribution, the relationship is unlikely due to chance.
+ This study will use the slope of this comparison as the test statistic. The slope in this case measures the direction of association, meaning if the slope is positive, that should indicate higher life expectancy and higher GDP. The steeper the slope, the stronger the link. To test these hypotheses, I use a permutation test. Under the null hypothesis, GDP per capita and life expectancy are unrelated, so the life expectancy values could just as well have been assigned to different countries. I mimic this “randomness” by shuffling life expectancy values within each continent, and recording the slope each time. Repeating this 2,000 times creates a null distribution of slopes that would be expected purely from random reassignment of life expectancy to countries if there were no real association in the underlying population.
 
  
  Refrence: The data used in this analysis comes from the [Gapminder Foundation](https://www.gapminder.org/data/), which is a independent education non-profit that aggreigates large data sets drawing from the UN, World Bank and other large international institutions. 
@@ -48,29 +46,26 @@ gap2007 <- gapminder |>
   select(country, continent, lifeExp, gdpPercap)
 ```
 ```{r}
-ggplot(gap2007, aes(x = lifeExp, y = gdpPercap, color = continent)) +
+library(ggplot2)
+library(scales)
+
+ggplot(gap2007, aes(x = gdpPercap, y = lifeExp, color = continent)) +
   geom_point(size = 2, alpha = 0.8) +
-  labs(
-    title = "Life Expectancy vs GDP per Capita (2007)",
-    subtitle = "Each point represents a country",
-    x = "Life Expectancy (years)",
-    y = "GDP per Capita (US dollars)"
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_x_continuous(
+    labels = label_number(scale = 1/1000, suffix = "k"),
+    name = "GDP per Capita (thousands of US dollars)"
   ) +
+  labs(
+    title = "GDP per Capita vs Life Expectancy (2007)",
+    subtitle = "Each point represents a country",
+    y = "Life Expectancy (years)"
+  ) +
+  facet_wrap(~continent) +
   theme_minimal()
 
-ggplot(gap2007, aes(x = lifeExp, y = gdpPercap, color = continent)) +
-  geom_point(size = 2, alpha = 0.8) +
-  geom_smooth(method = "lm", se = FALSE) + 
-  labs(
-    title = "Life Expectancy vs GDP per Capita (2007)",
-    subtitle = "Each point represents a country",
-    x = "Life Expectancy (years)",
-    y = "GDP per Capita (US dollars)"
-  ) +
-  facet_wrap(~continent) + 
-  theme_minimal()
 ```
-The scatter plot shows the observed relationship between life expectancy and GDP per capita across countries in 2007. Their is a general upward trend where countries with longer life expectancy tend to have higher incomes. Additionally, their is noticeable variation within continents. Some countries achieve high life expectancy despite modest GDP per capita, and others show the opposite.This graph warrants testing whether the relationship is strong enough to be considered statistically meaningful. 
+The scatter plot shows the observed relationship between life expectancy and GDP per capita across countries in 2007. There is a clear upward trend: countries with higher income levels tend to have longer life expectancy, although there is still substantial variation. Some countries achieve high life expectancy despite modest GDP per capita, and others show the opposite.This graph warrants testing whether the relationship is strong enough to be considered statistically meaningful. 
 
 This faceted graph shows the relationship between life expectancy and GDP per capita in 2007, separated by continent. Each point represents a country, and the line within each panel indicates the general direction of the relationship. Overall, continents like Europe and Asia show a strong positive correlation, while Africa and Oceania display weaker associations between life expectancy and GDP per capita.
 
@@ -153,14 +148,13 @@ To simulate the null hypothesis that life expectancy and GDP per capita are unre
 pvals_tbl <- null_by_cont_tbl |>
   group_by(continent) |>
   summarize(
-    #obs_slope = first(obs_slope), 
-    #p_value = mean(abs(perm_slope) >= abs(obs_slope))
-    p_value = mean(perm_slope >= obs_slope)
+    p_value = mean(abs(perm_slope) >= abs(obs_slope)),
+    .groups = "drop"
   )
 
 pvals_tbl
 ```
-The permutation results show that the relationship between life expectancy and GDP per capita is statistically significant in Africa, Asia, the Americas, and Europe. The effect in Africa is far smaller which may indicate that economic development does not translate into health outcomes as consistently there as it does in other parts of the world. Oceania shows a non-significant results because only two countries are present, making any estimate unstable. Overall, the analysis suggests that while income and health are positively related worldwide, the strength of this relationship varies by region. 
+The above table represents the null distribution through permutation. I calculated a two-sided p-value for each continent to test if the observed slope between GDP per capita and life expectancy was different from zero. The p-value above represents the proportion of permuted slopes whose absolute value was at least as large as the observed slope. This provides a measurement for how extreme the observed relationship is relative to what would be expected by complete chance. The results show quite small p-values for Africa, the Americas, Asia, and Europe. This indicates strong evidence of a real positive association. Oceania’s higher p-value suggests no statistically significant relationship, almost certainly due to its small sample size. Overall, the analysis suggests that while income and health are positively related worldwide, the strength of this relationship varies by region. 
 
 ```{r}
 #Plotting -- Faceted null distribution plots 
@@ -194,4 +188,7 @@ The histograms show slopes expected by chance if life expectancy and GDP were un
 
 Conclusion: 
 
-This simulation study provides strong evidence of a positive relationship between life expectancy and GDP per capita worldwide. However, this strength of correlation is dependent on region. Europe, Asia and the Americas show a strong and significant relationship. Africa shows a weaker, yet still significant connection. Oceania's results are not meaningfull due to having only two countries in the dataset. Overall, economic development and improved health outcomes appear linked globally, but the degree of the link is highly dependent on regional context. 
+This analysis provides evidence that, in the broader population of countries represented in the 2007 Gapminder data, GDP per capita and life expectancy are positively associated. By using a permutation test, I generated a null distribution that represents what slopes would look like should the two variables be completely unrelated. Meaning that the act of generating GDP per capita was independent of life expectancy. I then compared the observed slopes to this null distribution by calculating two-sided p-values for each continent to assess whether the relationships observed could potentially have arisen by some random variation. 
+
+The results show statistically significant positive associations in the Americas, Africa, Asia, and Europe. Showing that higher income levels correspond to longer average lifespans. Oceania, with only two countries represented, does not indicate a significant relationship due to the insufficient data. These findings suggest that while economic development and public health are strongly linked globally, the strength of this connection depends on regional context. Importantly, the conclusions extend beyond the specific 2007 dataset. They provide evidence that, in the larger population of nations, life expectancy and GDP per capita are not independent but systematically related. 
+

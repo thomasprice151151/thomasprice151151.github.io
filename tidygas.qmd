@@ -21,6 +21,7 @@ about:
 ```{r}
 #| message: false
 #| warning: false
+#| fig-alt: "A line chart showing weekly U.S. gas prices from 1990 to 2025"
 
 library(tidyverse)
 
@@ -39,5 +40,7 @@ weekly_gas_prices |>
   ) +
   theme_minimal()
 ```
+
+Over the past 30 years, U.S. gas prices have shown strong sensitivity to global economic events and policy shifts. Prices rose sharply during the early 2000s while their was growing demand and geopolitical instability, peaking before the 2008 financial crisis. After the '08 crisis, prices fluctuated through the 2010's due to oil production levals and OPEC decisions. More recently, pandemic-related supply shocks and the 2022 energy crisis drove another major surge, followed by gradual stabilization.
 
 [image source: CNBC](https://www.cnbc.com/2014/08/25/survey-us-gas-prices-down-4-cents-per-gallon.html)

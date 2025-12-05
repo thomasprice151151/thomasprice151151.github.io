@@ -1,0 +1,130 @@
+---
+title: "Analyzing Presidential Twitter Use: Obama vs. Trump"
+author: "Thomas Price"
+subtitle: "December 5th, 2025"
+format:
+  revealjs:
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
+    embed-resources: true
+    css: style.css
+    code-fold: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## Introduction 
+
+<div style="display: flex; justify-content: center; gap: 2em;">
+  <img src="images/Obama.jpeg" width="200"/>
+  <img src="images/Trump.jpeg" width="200"/>
+</div>
+
+**Goal: **
+
+Analyze how Barack Obama and Donald Turmp used Twitter as communication tools during their presidencies. 
+
+
+## Approach
+**Strategy: **
+
+- Sift through Archives, and data repositories 
+- Clean total amount of tweets
+- Measure what portion of tweets contained links, then what portion contained gov links 
+- Compare styles of communication between administrations 
+
+<div style="display:flex; justify-content:center; align-items:center; height:70vh; margin-top: 1em;">
+  <figure style="text-align: center;">
+    <img src="images/trumpraw.jpeg" style="max-width:2000%; max-height:200%; object-fit:contain;"/>
+    <figcaption style="font-size: 0.35em; margin-top: 0.3em;">
+      Raw tweet data before cleaning
+    </figcaption>
+  </figure>
+</div>
+
+## Obama's Twitter Usage
+
+
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 1.2em; flex-wrap: nowrap; margin-top: 1em;">
+  <img src="images/obamachart.jpeg" style="width:60%; max-height:500px; object-fit:contain; border-radius:8px;" />
+  <img src="images/obamagraph.jpeg" style="width:60%; max-height:500px; object-fit:contain; border-radius:8px;" />
+  <img src="images/obamafinal.jpeg" style="width:60%; max-height:500px; object-fit:contain; border-radius:8px;" />
+</div>
+
+
+**Key Findings**
+- Joined Twitter in 2015, posting **321 tweets** through his entire administration  
+- **42%** contained links  
+- **12.5%** directed users to government websites  
+- Common domains: *whitehouse.gov*, *healthcare.gov*, *vote.gov*
+
+## Trumps Twitter Usage 
+
+
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 1.2em; flex-wrap: nowrap; margin-top: 1em;">
+
+  <figure style="text-align: center; width:45%;">
+    <img src="images/trump1.jpeg" style="width:100%; max-height:500px; object-fit:contain; border-radius:8px;" />
+    <figcaption style="font-size: 0.85em; margin-top: 0.3em;">
+      Summary of Trump’s tweet volume and link usage
+    </figcaption>
+  </figure>
+
+  <figure style="text-align: center; width:45%;">
+    <img src="images/trump2.jpeg" style="width:100%; max-height:500px; object-fit:contain; border-radius:8px;" />
+    <figcaption style="font-size: 0.85em; margin-top: 0.3em;">
+      Tweets containing .gov links during Trump’s first term
+    </figcaption>
+  </figure>
+
+</div>
+
+<br>
+
+**Key Findings**
+- Tweeted over **23,000 times** during his first term  
+- About **50%** of tweets contained at least one link  
+- Only **5 tweets (0.02%)** linked to `.gov` sites  
+- Most links pointed to media outlets or campaign-related pages, not government resources  
+
+**Analysis**  
+Trump used Twitter as a personal broadcast and media amplifier, rather than as a channel for directing people to official government information. 
+
+
+## Comparing Obama and Trump's Twitter Usage 
+
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 2em; margin-top: 1em;">
+  <img src="images/comp1.jpeg" style="width:60%; max-height:700px; object-fit:contain; border-radius:8px;" />
+  <img src="images/comp2.jpeg" style="width:60%; max-height:700px; object-fit:contain; border-radius:8px;" />
+</div>
+
+<br>
+
+Key Comparison Findings  
+- Obama: 321 tweets, 42% contained links, 12.5% led to .gov sites  
+- Trump: 23,000 tweets, 50% contained links, only 0.02% led to .gov sites  
+- Obama’s communication emphasized official information and public resources  
+- Trump’s Twitter focused on personal messaging, media reactions, and direct engagement  
+
+## Thank You!
+
+Sources: 
+
+ Refrence 1 : The data used in this analysis comes from the [National Archives](https://www.obamalibrary.gov/digital-research-room/archived-white-house-websites-and-social-media), which maintains a full record of Barack Obama’s tweets during his presidency. The dataset was downloaded as a CSV file and stored locally for analysis.
+  
+  
+  Refrence 2: Mark Hershey compiled the dataset of Trump's Tweets and they are stored in his github linked below. 
+  [Original Dataset for Trumps Tweets](https://github.com/MarkHershey/CompleteTrumpTweetsArchive/blob/master/data/realDonaldTrump_in_office.csv) 
+  
+  
+  Original Source: “Archived White House Websites and Social Media | Barack Obama Presidential Library.” Obamalibrary.gov, 2017, www.obamalibrary.gov/digital-research-room/archived-white-house-websites-and-social-media. Accessed 4 Dec. 2025.
+
+
+
+“CompleteTrumpTweetsArchive/Data/RealDonaldTrump_in_office.csv at Master · MarkHershey/CompleteTrumpTweetsArchive.” GitHub, 2025, github.com/MarkHershey/CompleteTrumpTweetsArchive/blob/master/data/realDonaldTrump_in_office.csv. Accessed 4 Dec. 2025.
+
+
+

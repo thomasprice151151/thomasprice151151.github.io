@@ -1,0 +1,36 @@
+---
+title: "Using R for Thesis Prospectus "
+subtitle: "From Infrastructure to Influence: Evaluating Public Support for China in BRI Recipient States"
+description: |
+  This project investigates whether China’s Belt and Road Initiative (BRI) enhances soft power among recipient nations using cross-national data analyzed in R. 
+  
+  I used R to clean and merge data from AidData, Pew Research, and Afrobarometer, creating country-level variables for Chinese investment and public favorability.
+  Graph 1 visualizes the top thirty recipients of BRI finance, revealing the concentration of lending among geopolitically strategic states.
+  
+  Graph 3 displays cross-national attitudes toward China, showing wide variation in public favorability across key BRI participants.
+  
+  Graph 4 is a scatterplot linking total BRI lending to public opinion, illustrating that high financial exposure does not necessarily translate into positive sentiment.
+  
+  I have only included some of the graphs I created below, however, if you are intrested in my theory, findings, or analysis,
+  feel free to [read my prospectus here](Price_Senior Seminar_Final copy)
+  
+format:
+  html:
+    css: style.css
+    code-fold: true
+about:
+ template: jolla
+ image: images/BRI.jpeg 
+ image-shape: rounded
+ image-width: 17em
+---
+
+Graph 1 
+![Graph 1: BRI Lending by Country](images/graph1.jpeg){fig-align="center" width=50%}
+
+
+Graph 2 
+![Graph 2: Attidues Towards China](images/graph2.jpeg){fig-align="center" width=50%}
+
+Graph 3
+![Graph 3: Public Favorabillity Towards China VS. BRI Lending](images/graph3.jpeg){fig-align="center" width=50%}

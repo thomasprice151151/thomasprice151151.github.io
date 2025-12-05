@@ -31,17 +31,11 @@ format:
     toc: true
 ---
 
-Hi! My name is Thomas Price and I am a current Senior at Pitzer College. At Pitzer, I study International Political Economy and Data Science. When I am not studying, you can find me playing tennis on our club tennis team, traveling around the country with the Claremont Debate Team or winning intramural Pickle ball Tournaments!\
+Hi! My name is Thomas Price and I am a current Senior at Pitzer College. At Pitzer, I study International Political Economy and Data Science. When I am not studying, you can find me playing tennis on our club tennis team, traveling around the country with the Claremont Debate Team or playing Pickle ball Tournaments!\
 \
-Being From San Francisco, I am a huge Giants fan, so if you support any LA team, kindly leave this website
+The purpose of this website is the showcase projects that I have worked on in various data science classes, personal projects and a general portfolio of my interests. \
+\
+Feel free to surf around and check out some work, send me a note via email or peruse my linked-in, all linked below!
 
 ```         
-```
-
-```{r}
-
-```
-
-```{r}
-
 ```

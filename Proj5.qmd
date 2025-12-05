@@ -211,3 +211,9 @@ Data from: Stanford Open Policing Project (https://openpolicing.stanford.edu
 ).
 
 [image source: OpenPolicing](https://openpolicing.stanford.edu/news/)
+
+```{r}
+DBI::dbDisconnect(con_traffic, shutdown = TRUE)
+
+```
+

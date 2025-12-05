@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Obama was granted access to Twitter on May 18, 2015, roughly two years before he left office. Since then, Twitter has been used as a vehicle to disseminate information by elected officials at a rapidly growing rate. This analysis focuses on the content of his tweets, specifically examining which tweets contained links to government resources.Refrence: The data used in this analysis comes from the National Archives, which maintains a full record of Barack Obama’s tweets during his presidency. The dataset was downloaded as a CSV file and stored locally for analysis.">
+<meta name="description" content="Obama gained access to Twitter on May 18, 2015, roughly two years before leaving office. Since then, the platform has become an increasingly important tool for elected officials to share information with the public. This analysis examines the content of his tweets, focusing specifically on those that contained links to government resources. Similarly, the project extends this analysis to Donald Trump’s first presidency, comparing how he used Twitter to communicate with the public and whether his tweets directed users to official government sources. Overall, the project aims to evaluate how each administration leveraged social media as a channel for public information versus political messaging.Refrence 1 : The data used in this analysis comes from the National Archives, which maintains a full record of Barack Obama’s tweets during his presidency. The dataset was downloaded as a CSV file and stored locally for analysis.Refrence 2: Mark Hershey compiled the dataset of Trump’s Tweets and they are stored in his github linked below. Original Dataset for Trumps Tweets">
 
 <title>Analysis of Obama’s Tweets – Thomas Price</title>
 <style>
@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-79108a0fc1995748cbd19a5b0e3e3e7c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-530bf8e59df25186f8bffdc63bad3503.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -137,19 +137,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-visualization">    
         <li>
     <a class="dropdown-item" href="./tidygas.html">
- <span class="dropdown-text">US Gas Prices</span></a>
+ <span class="dropdown-text">Analysis of US Gas Prices</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./billboard_t100.html">
- <span class="dropdown-text">Billboard Top 100</span></a>
+ <span class="dropdown-text">Visualizing the Billboard Top 100</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Proj2.html">
- <span class="dropdown-text">Analysis of Obama’s Tweets (Proj2)</span></a>
+ <span class="dropdown-text">Analysis of Obama’s Tweets</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./simulation.html">
- <span class="dropdown-text">Permutation Test (Proj3)</span></a>
+ <span class="dropdown-text">Permutation Test:GDP and Life Expectancy</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Ethics_Blog.html">
@@ -157,7 +157,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="./Proj5.html">
- <span class="dropdown-text">SQL Visualization (Proj5)</span></a>
+ <span class="dropdown-text">SQL Analysis of Racial Disparities in Police Searches</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Thesis.html">
+ <span class="dropdown-text">Using R in my Thesis Prospectus</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Presentation.html">
+ <span class="dropdown-text">Examining Twitter Usage Across Presidential Administrations</span></a>
   </li>  
     </ul>
   </li>
@@ -175,8 +183,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     
 <!-- main -->
 <div class="quarto-about-jolla">
-  <img src="images/Obama.jpeg" class="about-image
-  rectangle " style="width: 17em;">
  <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Analysis of Obama’s Tweets</h1>
@@ -184,13 +190,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div>
   <div class="description">
-    <p>Obama was granted access to Twitter on May 18, 2015, roughly two years before he left office. Since then, Twitter has been used as a vehicle to disseminate information by elected officials at a rapidly growing rate. This analysis focuses on the content of his tweets, specifically examining which tweets contained links to government resources.</p>
-    <p>Refrence: The data used in this analysis comes from the <a href="https://www.obamalibrary.gov/digital-research-room/archived-white-house-websites-and-social-media">National Archives</a>, which maintains a full record of Barack Obama’s tweets during his presidency. The dataset was downloaded as a CSV file and stored locally for analysis.</p>
+    <p>Obama gained access to Twitter on May 18, 2015, roughly two years before leaving office. Since then, the platform has become an increasingly important tool for elected officials to share information with the public. This analysis examines the content of his tweets, focusing specifically on those that contained links to government resources. Similarly, the project extends this analysis to Donald Trump’s first presidency, comparing how he used Twitter to communicate with the public and whether his tweets directed users to official government sources. Overall, the project aims to evaluate how each administration leveraged social media as a channel for public information versus political messaging.</p>
+    <p>Refrence 1 : The data used in this analysis comes from the <a href="https://www.obamalibrary.gov/digital-research-room/archived-white-house-websites-and-social-media">National Archives</a>, which maintains a full record of Barack Obama’s tweets during his presidency. The dataset was downloaded as a CSV file and stored locally for analysis.</p>
+    <p>Refrence 2: Mark Hershey compiled the dataset of Trump’s Tweets and they are stored in his github linked below. <a href="https://github.com/MarkHershey/CompleteTrumpTweetsArchive/blob/master/data/realDonaldTrump_in_office.csv">Original Dataset for Trumps Tweets</a></p>
   </div>
 </div>
 <div class="quarto-title-meta">
   </div>
 </header><main class="content" id="quarto-document-content">
+<div style="display: flex; justify-content: center; gap: 2em;">
+<p><img src="images/Obama.jpeg" width="250"> <img src="images/Trump.jpeg" width="250"></p>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -227,43 +237,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #   expanded_urls &lt;chr&gt;, text_lower &lt;chr&gt;, text_noline &lt;chr&gt;</code></pre>
 </div>
 </div>
-<p>The above graph is the data taken from the National Archives of Obama’s tweets. He had a total of 325 tweets through is 2 year Twitter tenure. Moving forward, we will continue to clean the data to identify what the nature of his tweets where, specifically targeting those that had links in them. This specific table shows, the date of the tweet, the source, the text of the tweet, if it was re-tweeted, and any urls within the tweet. The cleaning function we did removes any rows where the tweet text is missing, and does some basic cleaning by making all the text lowercase and getting rid of any line breaks.</p>
+<p>The table above uses data from the National Archives containing Obama’s tweets during his presidency. He posted a total of 325 tweets over his two-year tenure on Twitter. The next step in the analysis involves cleaning the data to better understand the nature of his tweets, with a focus on those containing links. This table displays each tweet’s date, source, text, retweet status, and any associated URLs. The cleaning process removes rows with missing text and standardizes the remaining data by converting all text to lowercase and eliminating line breaks.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identifying tweets that contain links and government links. </span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>tweets_table <span class="ot">&lt;-</span> tweets <span class="sc">|&gt;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">created_at =</span> timestamp,</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">has_link =</span> <span class="sc">!</span><span class="fu">is.na</span>(expanded_urls),</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">gov_link =</span> <span class="fu">str_detect</span>(expanded_urls, <span class="st">"(?&lt;=https?://)[^</span><span class="sc">\\</span><span class="st">s]*</span><span class="sc">\\</span><span class="st">.gov"</span>), <span class="at">has_http_in_text =</span> <span class="fu">str_detect</span>(text, <span class="st">"https?://[^</span><span class="sc">\\</span><span class="st">s]+"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>     <span class="fu">select</span>(created_at, text, has_link, gov_link, has_http_in_text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>tweets_table <span class="ot">&lt;-</span> tweets <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">created_at =</span> timestamp,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">has_link =</span> <span class="sc">!</span><span class="fu">is.na</span>(expanded_urls),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">gov_link =</span> <span class="fu">str_detect</span>(expanded_urls,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(?&lt;=https?://)[^</span><span class="sc">\\</span><span class="st">s]*</span><span class="sc">\\</span><span class="st">.gov"</span>), </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">has_http_in_text =</span> <span class="fu">str_detect</span>(text, <span class="st">"https?://[^</span><span class="sc">\\</span><span class="st">s]+"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(created_at, text, has_link, gov_link, has_http_in_text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating a new table with those links </span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>tweets_table <span class="sc">|&gt;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_tweets =</span> <span class="fu">n</span>(),</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">with_links =</span> <span class="fu">sum</span>(has_link),</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_with_links =</span> <span class="fu">mean</span>(has_link),</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_gov_of_links =</span> <span class="fu">mean</span>(gov_link[has_link], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>tweets_table <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_tweets =</span> <span class="fu">n</span>(),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">with_links =</span> <span class="fu">sum</span>(has_link),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_with_links =</span> <span class="fu">mean</span>(has_link),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_gov_of_links =</span> <span class="fu">mean</span>(gov_link[has_link], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 4
@@ -277,29 +281,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualizing which tweets contained links vs Gov links</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>links_summary <span class="ot">&lt;-</span> tweets_table <span class="sc">|&gt;</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">with_links =</span> <span class="fu">sum</span>(has_link, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">with_gov_links =</span> <span class="fu">sum</span>(gov_link, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"type"</span>, <span class="at">values_to =</span> <span class="st">"count"</span>)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(links_summary, <span class="fu">aes</span>(<span class="at">x =</span> type, <span class="at">y =</span> count, <span class="at">fill =</span> type)) <span class="sc">+</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Obama Tweets Containing .Gov and Non .Gov Links"</span>,</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Tweets"</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"darkred"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>links_summary <span class="ot">&lt;-</span> tweets_table <span class="sc">|&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">with_links =</span> <span class="fu">sum</span>(has_link, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">with_gov_links =</span> <span class="fu">sum</span>(gov_link, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"type"</span>, <span class="at">values_to =</span> <span class="st">"count"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(links_summary, <span class="fu">aes</span>(<span class="at">x =</span> type, <span class="at">y =</span> count, <span class="at">fill =</span> type)) <span class="sc">+</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Obama Tweets Containing .Gov and Non .Gov Links"</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Tweets"</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"darkred"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -309,7 +310,333 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The graph above showcases that table data above. We can see the total amount of tweets that contained links, and the total amount that contained government links. As seen only a small percentage where gov links. Given that Twitter is a relatively new medium to disseminate critical information, I would like to do further analysis to see if more recent officials have used it to push government resources. Ultimately comparing usage across different administrations.</p>
+<p>The graph above visualizes the data from the previous table, showing the total number of tweets that contained links and the subset that included government links. Only a small percentage of tweets directed users to .gov websites. Since Twitter is a relatively new platform for sharing official information, it would be interesting to compare how more recent administrations have used it to promote government resources and public communication.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tweets_table <span class="ot">&lt;-</span> tweets <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">created_at =</span> timestamp,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">has_link =</span> <span class="sc">!</span><span class="fu">is.na</span>(expanded_urls),</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">gov_link =</span> <span class="fu">str_detect</span>(expanded_urls, <span class="st">"(?&lt;=https?://)[^</span><span class="sc">\\</span><span class="st">s]*</span><span class="sc">\\</span><span class="st">.gov"</span>),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">has_http_in_text =</span> <span class="fu">str_detect</span>(text, <span class="st">"https?://[^</span><span class="sc">\\</span><span class="st">s]+"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(created_at, text, expanded_urls, has_link, gov_link, has_http_in_text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>The code above isolates all of Obama’s tweets that contain .gov links and extracts the specific government domain from each URL. It then counts how many times each unique domain appears to identify which sites he referenced most frequently. The resulting table shows that Obama’s tweets most often linked to official government pages such as whitehouse.gov, emphasizing his use of Twitter to share verified information and policy resources.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>gov_domains <span class="ot">&lt;-</span> tweets_table <span class="sc">|&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gov_link, <span class="sc">!</span><span class="fu">is.na</span>(expanded_urls)) <span class="sc">|&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">urls =</span> <span class="fu">strsplit</span>(expanded_urls, <span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>)) <span class="sc">|&gt;</span>   <span class="co"># If a tweet has several URLs, split them so each is counted</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">unnest</span>(urls) <span class="sc">|&gt;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">domain =</span> <span class="fu">str_extract</span>(urls, <span class="st">"(?&lt;=://)[^/]+"</span>),</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">domain =</span> <span class="fu">str_remove</span>(domain, <span class="st">"^www</span><span class="sc">\\</span><span class="st">."</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(domain, <span class="st">"</span><span class="sc">\\</span><span class="st">.gov$"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(domain, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gov_domains, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   domain              n
+   &lt;chr&gt;           &lt;int&gt;
+ 1 go.wh.gov           4
+ 2 1.usa.gov           1
+ 3 AidRefugees.gov     1
+ 4 HealthCare.gov      1
+ 5 Healthcare.gov      1
+ 6 Ready.gov           1
+ 7 fafsa.gov           1
+ 8 go.nasa.gov         1
+ 9 vote.gov            1
+10 vote.usa.gov        1</code></pre>
+</div>
+</div>
+<p>This table lists the government websites most frequently linked in Obama’s tweets. The majority of links directed users to go.wh.gov, a shortened White House domain used to share official announcements and press materials. Other links point to various federal resources such as HealthCare.gov, FAFSA.gov, and Vote.gov, reflecting Obama’s efforts to promote public programs and civic engagement through his social media presence.</p>
+<p>Reading and Cleaning Trumps Tweets:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV from GitHub</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>trump <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/MarkHershey/CompleteTrumpTweetsArchive/refs/heads/master/data/realDonaldTrump_in_office.csv"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trump)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  ID               Time                `Tweet URL`                  `Tweet Text`
+  &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;                        &lt;chr&gt;       
+1 @realDonaldTrump 2017-01-20 06:31:00 https://twitter.com/realDon… It all begi…
+2 @realDonaldTrump 2017-01-20 11:51:00 https://twitter.com/realDon… Today we ar…
+3 @realDonaldTrump 2017-01-20 11:51:00 https://twitter.com/realDon… power from …
+4 @realDonaldTrump 2017-01-20 11:52:00 https://twitter.com/realDon… What truly …
+5 @realDonaldTrump 2017-01-20 11:53:00 https://twitter.com/realDon… January 20t…
+6 @realDonaldTrump 2017-01-20 11:54:00 https://twitter.com/realDon… The forgott…</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(trump)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ID"         "Time"       "Tweet URL"  "Tweet Text"</code></pre>
+</div>
+</div>
+<p>Re-naming the columns of Trumps tweets so they match that of Obama’s</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>trump_clean <span class="ot">&lt;-</span> trump <span class="sc">|&gt;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">id        =</span> ID,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">timestamp =</span> Time,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">tweet_url =</span> <span class="st">`</span><span class="at">Tweet URL</span><span class="st">`</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">text      =</span> <span class="st">`</span><span class="at">Tweet Text</span><span class="st">`</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trump_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  id               timestamp           tweet_url                           text 
+  &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;                               &lt;chr&gt;
+1 @realDonaldTrump 2017-01-20 06:31:00 https://twitter.com/realDonaldTrum… It a…
+2 @realDonaldTrump 2017-01-20 11:51:00 https://twitter.com/realDonaldTrum… Toda…
+3 @realDonaldTrump 2017-01-20 11:51:00 https://twitter.com/realDonaldTrum… powe…
+4 @realDonaldTrump 2017-01-20 11:52:00 https://twitter.com/realDonaldTrum… What…
+5 @realDonaldTrump 2017-01-20 11:53:00 https://twitter.com/realDonaldTrum… Janu…
+6 @realDonaldTrump 2017-01-20 11:54:00 https://twitter.com/realDonaldTrum… The …</code></pre>
+</div>
+</div>
+<p>Cleaning the Tweets: making them all lowercase and removing line breaks</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>trump_tweets <span class="ot">&lt;-</span> trump_clean <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(text)) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">text_lower  =</span> <span class="fu">str_to_lower</span>(text),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">text_noline =</span> <span class="fu">str_replace_all</span>(text_lower, <span class="st">"[</span><span class="sc">\r\n</span><span class="st">]"</span>, <span class="st">" "</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trump_tweets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  id               timestamp           tweet_url    text  text_lower text_noline
+  &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;      
+1 @realDonaldTrump 2017-01-20 06:31:00 https://twi… It a… it all be… it all beg…
+2 @realDonaldTrump 2017-01-20 11:51:00 https://twi… Toda… today we … today we a…
+3 @realDonaldTrump 2017-01-20 11:51:00 https://twi… powe… power fro… power from…
+4 @realDonaldTrump 2017-01-20 11:52:00 https://twi… What… what trul… what truly…
+5 @realDonaldTrump 2017-01-20 11:53:00 https://twi… Janu… january 2… january 20…
+6 @realDonaldTrump 2017-01-20 11:54:00 https://twi… The … the forgo… the forgot…</code></pre>
+</div>
+</div>
+<p>Creating a table with gov links</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>trump_tweets_table <span class="ot">&lt;-</span> trump_tweets <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">created_at =</span> timestamp,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">has_link   =</span> <span class="fu">str_detect</span>(text, <span class="st">"https?://[^</span><span class="sc">\\</span><span class="st">s]+"</span>),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">gov_link   =</span> <span class="fu">str_detect</span>(text, <span class="st">"(?&lt;=https?://)[^</span><span class="sc">\\</span><span class="st">s]*</span><span class="sc">\\</span><span class="st">.gov"</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(created_at, text, has_link, gov_link)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trump_tweets_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  created_at          text                                     has_link gov_link
+  &lt;dttm&gt;              &lt;chr&gt;                                    &lt;lgl&gt;    &lt;lgl&gt;   
+1 2017-01-20 06:31:00 It all begins today! I will see you at … FALSE    FALSE   
+2 2017-01-20 11:51:00 Today we are not merely transferring po… FALSE    FALSE   
+3 2017-01-20 11:51:00 power from Washington, D.C. and giving … FALSE    FALSE   
+4 2017-01-20 11:52:00 What truly matters is not which party c… FALSE    FALSE   
+5 2017-01-20 11:53:00 January 20th 2017, will be remembered a… FALSE    FALSE   
+6 2017-01-20 11:54:00 The forgotten men and women of our coun… FALSE    FALSE   </code></pre>
+</div>
+</div>
+<p>Summary of the table that shows total amount of tweets containing gov links</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>trump_summary <span class="ot">&lt;-</span> trump_tweets_table <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_tweets     =</span> <span class="fu">n</span>(),</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">with_links       =</span> <span class="fu">sum</span>(has_link),</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_with_links   =</span> <span class="fu">mean</span>(has_link),</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_gov_of_links =</span> <span class="fu">mean</span>(gov_link[has_link], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>trump_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  total_tweets with_links pct_with_links pct_gov_of_links
+         &lt;int&gt;      &lt;int&gt;          &lt;dbl&gt;            &lt;dbl&gt;
+1        23073      11352          0.492         0.000440</code></pre>
+</div>
+</div>
+<p>The table above shows the total number of tweets that Trump posted during his first term. Crucially, it shows the percentage that contained links (50%) and, of those, how many directed users to government websites (0.0004%).</p>
+<p>Extracting URL’s from the tweets</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>trump_links <span class="ot">&lt;-</span> trump_tweets_table <span class="sc">|&gt;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(has_link) <span class="sc">|&gt;</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">urls =</span> <span class="fu">str_extract_all</span>(text, <span class="st">"https?://[^</span><span class="sc">\\</span><span class="st">s]+"</span>)  <span class="co"># extract all URLs</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(urls)  </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trump_links)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  created_at          text                               has_link gov_link urls 
+  &lt;dttm&gt;              &lt;chr&gt;                              &lt;lgl&gt;    &lt;lgl&gt;    &lt;chr&gt;
+1 2017-01-20 11:58:00 It is time to remember that...htt… TRUE     FALSE    http…
+2 2017-01-20 12:00:00 So to all Americans, in every cit… TRUE     FALSE    http…
+3 2017-01-20 12:13:00 TO ALL AMERICANS https://www.face… TRUE     FALSE    http…
+4 2017-01-25 18:03:00 Beginning today, the United State… TRUE     FALSE    http…
+5 2017-01-26 17:53:00 Miami-Dade Mayor drops sanctuary … TRUE     FALSE    http…
+6 2017-01-27 10:30:00 . @ VP Mike Pence will be speakin… TRUE     FALSE    http…</code></pre>
+</div>
+</div>
+<p>Isolating Gov Links</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>trump_gov_links <span class="ot">&lt;-</span> trump_links <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(urls, <span class="st">"(?&lt;=https?://)[^</span><span class="sc">\\</span><span class="st">s]*</span><span class="sc">\\</span><span class="st">.gov"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">domain =</span> <span class="fu">str_extract</span>(urls, <span class="st">"(?&lt;=://)[^/]+"</span>),    </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">domain =</span> <span class="fu">str_remove</span>(domain, <span class="st">"^www</span><span class="sc">\\</span><span class="st">."</span>)          </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trump_gov_links)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 6
+  created_at          text                        has_link gov_link urls  domain
+  &lt;dttm&gt;              &lt;chr&gt;                       &lt;lgl&gt;    &lt;lgl&gt;    &lt;chr&gt; &lt;chr&gt; 
+1 2017-01-27 14:20:00 Statement on International… TRUE     TRUE     http… white…
+2 2020-01-27 11:09:00 On International Holocaust… TRUE     TRUE     http… white…
+3 2020-03-11 14:17:00 I want to thank all of our… TRUE     TRUE     http… CDC.g…
+4 2020-04-23 10:14:00 https://www.whitehouse.gov… TRUE     TRUE     http… white…
+5 2020-05-20 13:34:00 https://www.whitehouse.gov… TRUE     TRUE     http… white…</code></pre>
+</div>
+</div>
+<p>Visualizing top government domains</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>trump_gov_domains <span class="ot">&lt;-</span> trump_gov_links <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(domain, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>trump_gov_domains</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  domain             n
+  &lt;chr&gt;          &lt;int&gt;
+1 whitehouse.gov     4
+2 CDC.gov            1</code></pre>
+</div>
+</div>
+<p>Comparing Trump’s Twitter usage to Obama’s</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine both presidents' summaries</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Obama counts</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>obama_counts <span class="ot">&lt;-</span> tweets_table <span class="sc">|&gt;</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_tweets =</span> <span class="fu">n</span>(),</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">gov_links    =</span> <span class="fu">sum</span>(gov_link, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">president =</span> <span class="st">"Obama"</span>)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Trump counts</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>trump_counts <span class="ot">&lt;-</span> trump_tweets_table <span class="sc">|&gt;</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_tweets =</span> <span class="fu">n</span>(),</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">gov_links    =</span> <span class="fu">sum</span>(gov_link, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">president =</span> <span class="st">"Trump"</span>)</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine into one table</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>comparison_counts <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(obama_counts, trump_counts) <span class="sc">|&gt;</span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(president, total_tweets, gov_links)</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>comparison_counts <span class="ot">&lt;-</span> comparison_counts <span class="sc">|&gt;</span></span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_gov_links =</span> (gov_links <span class="sc">/</span> total_tweets) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>comparison_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  president total_tweets gov_links pct_gov_links
+  &lt;chr&gt;            &lt;int&gt;     &lt;int&gt;         &lt;dbl&gt;
+1 Obama              321        17        5.30  
+2 Trump            23073         5        0.0217</code></pre>
+</div>
+</div>
+<p>Plotting the percentage delta</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comparison_counts, <span class="fu">aes</span>(<span class="at">x =</span> president, <span class="at">y =</span> gov_links, <span class="at">fill =</span> president)) <span class="sc">+</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(pct_gov_links, <span class="dv">2</span>), <span class="st">"%"</span>)),</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Tweets Containing .Gov Links as a Share of Total Tweets"</span>,</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Tweets"</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"darkred"</span>)) <span class="sc">+</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Proj2_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Donald Trump’s use of Twitter is vastly different from that of his predecessors. Over the course of his first term (2016 - 2020), Trump tweeted more than 23,000 times, often using the platform as his main form of disseminating information to the public. However, among those 23,000 tweets, only 5 contained direct links to government resources (0.02%).</p>
+<p>In comparison to Obama, who used Twitter as a vehicle to distribute institutional communication, often linking verified government resources like WhiteHouse.gov or HealthCare.gov. Trump’s feed was often comprised of commentary, reactions, and amplification of external media sources. His use of the platform reflected his style of immediacy and opinion, directly engaging with his audience rather than supplying vital information during a crisis like COVID.</p>
+<p>The quantitative difference between the two reflects a broader stylistic and strategic contrast. Obama used his Twitter as a strategic governance tool, and Trump used it as a personal broadcasting platform. Despite the absolute prolific amount of tweets, the near absence of .gov links showcases a shift from institutional communication to personal rhetoric, which in turn became a defining attribute of his administration.</p>
+<p>Original Source: “Archived White House Websites and Social Media | Barack Obama Presidential Library.” Obamalibrary.gov, 2017, www.obamalibrary.gov/digital-research-room/archived-white-house-websites-and-social-media. Accessed 4 Dec.&nbsp;2025.</p>
+<p>“CompleteTrumpTweetsArchive/Data/RealDonaldTrump_in_office.csv at Master · MarkHershey/CompleteTrumpTweetsArchive.” GitHub, 2025, github.com/MarkHershey/CompleteTrumpTweetsArchive/blob/master/data/realDonaldTrump_in_office.csv. Accessed 4 Dec.&nbsp;2025.</p>
 
 
 </main>  

@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="This project investigates whether the positive correlation between GDP per capita and life expectancy holds true across different continents. Historically, countries with populations that enjoy higher life expectancy tend to maintain higher GDP per capita. However, this relationship may not be universal. Some nations achieve relatively high life expectancy despite having lower-than-average GDP per capita, while others have comparatively poor life expectancy despite higher average incomes.This project uses data from the Gapminder dataset. I perform a permutation test to evaluate whether the observed correlation between life expectancy and GDP per capita is stronger than what would be expected by chance within each continent.The question I hope to answer is: Does higher life expectancy always imply higher GDP per capita?The Null Hypothesis would be: Any relationship between life expectancy and GDP per capita is due to chance, that is, life expectancy does not predict income. - Knowing a countires life expectancy does not help in the prediction of its GDP per capitaThe Alternative Hypothesis would be: Countries with higher life expectancy tend to have systematically higher (or lower) GDP per capita. In other words, the relationship is real, not random. - Countries with deviations in life expetency, whether possitive or negative tend to have systematically differnt GDP levels. The slope is meaningfully different from zeroThis study will use the slope of this comparison as the test statistic. The slope in this case measures the direction of association, meaning if the slope is positive, that should indicate higher life expectancy and higher GDP. The steeper the slope, the stronger the link. Under the null hypothesis, when life expectancy values are shuffled randomly among countries, the slope should average around zero. If the observed slope is far from this null distribution, the relationship is unlikely due to chance.Refrence: The data used in this analysis comes from the Gapminder Foundation, which is a independent education non-profit that aggreigates large data sets drawing from the UN, World Bank and other large international institutions.Original Author: Rosling, Hans; Rosling, Ola; Rosling Rönnlund, Anna (2005–present) “Gapminder Data”. Stockholm: Gapminder Foundation.">
+<meta name="description" content="This project investigates whether the positive correlation between GDP per capita and life expectancy holds true across different continents. Historically, countries with populations that enjoy higher life expectancy tend to maintain higher GDP per capita. However, this relationship may not be universal. Some nations achieve relatively high life expectancy despite having lower-than-average GDP per capita, while others have comparatively poor life expectancy despite higher average incomes.This project uses data from the Gapminder dataset. I perform a permutation test to evaluate whether the observed correlation between life expectancy and GDP per capita is stronger than what would be expected by chance within each continent.The question I hope to answer is: In the broader population of countries similar to those in the 2007 Gapminder data, is GDP per capita associated with life expectancy?Null hypothesis (H₀): In the population, GDP per capita and life expectancy are unrelated. Meaning, the true slope in a regression of life expectancy on GDP per capita is 0 within each continent. Any pattern we see in the sample arises from natural country-to-country fluctuation. Alternative hypothesis (H₁): In the population, countries with higher GDP per capita tend to have simerlaly higher life expectancy (non-zero slope). The association we see is stronger than what would be expected from random variation alone.This study will use the slope of this comparison as the test statistic. The slope in this case measures the direction of association, meaning if the slope is positive, that should indicate higher life expectancy and higher GDP. The steeper the slope, the stronger the link. To test these hypotheses, I use a permutation test. Under the null hypothesis, GDP per capita and life expectancy are unrelated, so the life expectancy values could just as well have been assigned to different countries. I mimic this “randomness” by shuffling life expectancy values within each continent, and recording the slope each time. Repeating this 2,000 times creates a null distribution of slopes that would be expected purely from random reassignment of life expectancy to countries if there were no real association in the underlying population.Refrence: The data used in this analysis comes from the Gapminder Foundation, which is a independent education non-profit that aggreigates large data sets drawing from the UN, World Bank and other large international institutions.Original Author: Rosling, Hans; Rosling, Ola; Rosling Rönnlund, Anna (2005–present) “Gapminder Data”. Stockholm: Gapminder Foundation.">
 
 <title>Understanding the Relationship Between GDP Per-Capita and Life Expectancy – Thomas Price</title>
 <style>
@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-79108a0fc1995748cbd19a5b0e3e3e7c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-530bf8e59df25186f8bffdc63bad3503.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -137,19 +137,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-visualization">    
         <li>
     <a class="dropdown-item" href="./tidygas.html">
- <span class="dropdown-text">US Gas Prices</span></a>
+ <span class="dropdown-text">Analysis of US Gas Prices</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./billboard_t100.html">
- <span class="dropdown-text">Billboard Top 100</span></a>
+ <span class="dropdown-text">Visualizing the Billboard Top 100</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Proj2.html">
- <span class="dropdown-text">Analysis of Obama’s Tweets (Proj2)</span></a>
+ <span class="dropdown-text">Analysis of Obama’s Tweets</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./simulation.html">
- <span class="dropdown-text">Permutation Test (Proj3)</span></a>
+ <span class="dropdown-text">Permutation Test:GDP and Life Expectancy</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Ethics_Blog.html">
@@ -157,7 +157,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="./Proj5.html">
- <span class="dropdown-text">SQL Visualization (Proj5)</span></a>
+ <span class="dropdown-text">SQL Analysis of Racial Disparities in Police Searches</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Thesis.html">
+ <span class="dropdown-text">Using R in my Thesis Prospectus</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Presentation.html">
+ <span class="dropdown-text">Examining Twitter Usage Across Presidential Administrations</span></a>
   </li>  
     </ul>
   </li>
@@ -185,10 +193,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="description">
     <p>This project investigates whether the positive correlation between GDP per capita and life expectancy holds true across different continents. Historically, countries with populations that enjoy higher life expectancy tend to maintain higher GDP per capita. However, this relationship may not be universal. Some nations achieve relatively high life expectancy despite having lower-than-average GDP per capita, while others have comparatively poor life expectancy despite higher average incomes.</p>
     <p>This project uses data from the Gapminder dataset. I perform a permutation test to evaluate whether the observed correlation between life expectancy and GDP per capita is stronger than what would be expected by chance within each continent.</p>
-    <p>The question I hope to answer is: Does higher life expectancy always imply higher GDP per capita?</p>
-    <p>The Null Hypothesis would be: Any relationship between life expectancy and GDP per capita is due to chance, that is, life expectancy does not predict income. - Knowing a countires life expectancy does not help in the prediction of its GDP per capita</p>
-    <p>The Alternative Hypothesis would be: Countries with higher life expectancy tend to have systematically higher (or lower) GDP per capita. In other words, the relationship is real, not random. - Countries with deviations in life expetency, whether possitive or negative tend to have systematically differnt GDP levels. The slope is meaningfully different from zero</p>
-    <p>This study will use the slope of this comparison as the test statistic. The slope in this case measures the direction of association, meaning if the slope is positive, that should indicate higher life expectancy and higher GDP. The steeper the slope, the stronger the link. Under the null hypothesis, when life expectancy values are shuffled randomly among countries, the slope should average around zero. If the observed slope is far from this null distribution, the relationship is unlikely due to chance.</p>
+    <p>The question I hope to answer is: In the broader population of countries similar to those in the 2007 Gapminder data, is GDP per capita associated with life expectancy?</p>
+    <p>Null hypothesis (H₀): In the population, GDP per capita and life expectancy are unrelated. Meaning, the true slope in a regression of life expectancy on GDP per capita is 0 within each continent. Any pattern we see in the sample arises from natural country-to-country fluctuation. Alternative hypothesis (H₁): In the population, countries with higher GDP per capita tend to have simerlaly higher life expectancy (non-zero slope). The association we see is stronger than what would be expected from random variation alone.</p>
+    <p>This study will use the slope of this comparison as the test statistic. The slope in this case measures the direction of association, meaning if the slope is positive, that should indicate higher life expectancy and higher GDP. The steeper the slope, the stronger the link. To test these hypotheses, I use a permutation test. Under the null hypothesis, GDP per capita and life expectancy are unrelated, so the life expectancy values could just as well have been assigned to different countries. I mimic this “randomness” by shuffling life expectancy values within each continent, and recording the slope each time. Repeating this 2,000 times creates a null distribution of slopes that would be expected purely from random reassignment of life expectancy to countries if there were no real association in the underlying population.</p>
     <p>Refrence: The data used in this analysis comes from the <a href="https://www.gapminder.org/data/">Gapminder Foundation</a>, which is a independent education non-profit that aggreigates large data sets drawing from the UN, World Bank and other large international institutions.</p>
     <p>Original Author: Rosling, Hans; Rosling, Ola; Rosling Rönnlund, Anna (2005–present) “Gapminder Data”. Stockholm: Gapminder Foundation.</p>
   </div>
@@ -226,15 +233,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gap2007, <span class="fu">aes</span>(<span class="at">x =</span> lifeExp, <span class="at">y =</span> gdpPercap, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Life Expectancy vs GDP per Capita (2007)"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Each point represents a country"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Life Expectancy (years)"</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"GDP per Capita (US dollars)"</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gap2007, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">scale =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">1000</span>, <span class="at">suffix =</span> <span class="st">"k"</span>),</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"GDP per Capita (thousands of US dollars)"</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"GDP per Capita vs Life Expectancy (2007)"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Each point represents a country"</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Life Expectancy (years)"</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>continent) <span class="sc">+</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -243,39 +258,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gap2007, <span class="fu">aes</span>(<span class="at">x =</span> lifeExp, <span class="at">y =</span> gdpPercap, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Life Expectancy vs GDP per Capita (2007)"</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Each point represents a country"</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Life Expectancy (years)"</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"GDP per Capita (US dollars)"</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>continent) <span class="sc">+</span> </span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="simulation_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
 </div>
-</div>
-</div>
-<p>The scatter plot shows the observed relationship between life expectancy and GDP per capita across countries in 2007. Their is a general upward trend where countries with longer life expectancy tend to have higher incomes. Additionally, their is noticeable variation within continents. Some countries achieve high life expectancy despite modest GDP per capita, and others show the opposite.This graph warrants testing whether the relationship is strong enough to be considered statistically meaningful.</p>
+<p>The scatter plot shows the observed relationship between life expectancy and GDP per capita across countries in 2007. There is a clear upward trend: countries with higher income levels tend to have longer life expectancy, although there is still substantial variation. Some countries achieve high life expectancy despite modest GDP per capita, and others show the opposite.This graph warrants testing whether the relationship is strong enough to be considered statistically meaningful.</p>
 <p>This faceted graph shows the relationship between life expectancy and GDP per capita in 2007, separated by continent. Each point represents a country, and the line within each panel indicates the general direction of the relationship. Overall, continents like Europe and Asia show a strong positive correlation, while Africa and Oceania display weaker associations between life expectancy and GDP per capita.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Identifying the LifeExp slope with a linear model</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>get_slope <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(gdpPercap <span class="sc">~</span> lifeExp, <span class="at">data =</span> df)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coef</span>(fit)[[<span class="st">"lifeExp"</span>]]  </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Identifying the LifeExp slope with a linear model</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>get_slope <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(gdpPercap <span class="sc">~</span> lifeExp, <span class="at">data =</span> df)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coef</span>(fit)[[<span class="st">"lifeExp"</span>]]  </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>The code above tests the slope of the simple regression. gdpPercap ~ lifeExp</p>
@@ -283,13 +277,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>obs_slopes <span class="ot">&lt;-</span> gap2007 <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">obs_slope =</span> <span class="fu">coef</span>(<span class="fu">lm</span>(gdpPercap <span class="sc">~</span> lifeExp))[<span class="dv">2</span>]</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>obs_slopes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>obs_slopes <span class="ot">&lt;-</span> gap2007 <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">obs_slope =</span> <span class="fu">coef</span>(<span class="fu">lm</span>(gdpPercap <span class="sc">~</span> lifeExp))[<span class="dv">2</span>]</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>obs_slopes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
@@ -303,27 +297,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>continents <span class="ot">&lt;-</span> <span class="fu">unique</span>(gap2007<span class="sc">$</span>continent)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>obs_slopes_continent <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(continents))</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(continents)) {</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  df_cont <span class="ot">&lt;-</span> <span class="fu">subset</span>(gap2007, continent <span class="sc">==</span> continents[i])</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  obs_slopes_continent[i] <span class="ot">&lt;-</span> <span class="fu">get_slope</span>(df_cont)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(obs_slopes_continent) <span class="ot">&lt;-</span> continents</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>obs_slope_overall <span class="ot">&lt;-</span> <span class="fu">get_slope</span>(gap2007)</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>obs_slope_overall</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>continents <span class="ot">&lt;-</span> <span class="fu">unique</span>(gap2007<span class="sc">$</span>continent)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>obs_slopes_continent <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(continents))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(continents)) {</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  df_cont <span class="ot">&lt;-</span> <span class="fu">subset</span>(gap2007, continent <span class="sc">==</span> continents[i])</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  obs_slopes_continent[i] <span class="ot">&lt;-</span> <span class="fu">get_slope</span>(df_cont)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(obs_slopes_continent) <span class="ot">&lt;-</span> continents</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>obs_slope_overall <span class="ot">&lt;-</span> <span class="fu">get_slope</span>(gap2007)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>obs_slope_overall</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 722.8975</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>obs_slopes_continent</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>obs_slopes_continent</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Asia    Europe    Africa  Americas   Oceania 
@@ -335,28 +329,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation Test : Null Distribution</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>perm_null <span class="ot">&lt;-</span> <span class="cf">function</span>(rep, data){</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(continent) <span class="sc">|&gt;</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(continent, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">lifeExp_perm =</span> <span class="fu">sample</span>(lifeExp, <span class="at">replace =</span> <span class="cn">FALSE</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">obs_slope  =</span> <span class="fu">coef</span>(<span class="fu">lm</span>(gdpPercap <span class="sc">~</span> lifeExp      ))[<span class="dv">2</span>],</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">perm_slope =</span> <span class="fu">coef</span>(<span class="fu">lm</span>(gdpPercap <span class="sc">~</span> lifeExp_perm ))[<span class="dv">2</span>],</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">rep =</span> rep)</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2025</span>)</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>null_by_cont_tbl <span class="ot">&lt;-</span> <span class="fu">map</span>(<span class="dv">1</span><span class="sc">:</span>B, perm_null, <span class="at">data =</span> gap2007) <span class="sc">|&gt;</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_rbind</span>()</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(null_by_cont_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation Test : Null Distribution</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>perm_null <span class="ot">&lt;-</span> <span class="cf">function</span>(rep, data){</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(continent) <span class="sc">|&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(continent, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">lifeExp_perm =</span> <span class="fu">sample</span>(lifeExp, <span class="at">replace =</span> <span class="cn">FALSE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">obs_slope  =</span> <span class="fu">coef</span>(<span class="fu">lm</span>(gdpPercap <span class="sc">~</span> lifeExp      ))[<span class="dv">2</span>],</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">perm_slope =</span> <span class="fu">coef</span>(<span class="fu">lm</span>(gdpPercap <span class="sc">~</span> lifeExp_perm ))[<span class="dv">2</span>],</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">rep =</span> rep)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2025</span>)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>null_by_cont_tbl <span class="ot">&lt;-</span> <span class="fu">map</span>(<span class="dv">1</span><span class="sc">:</span>B, perm_null, <span class="at">data =</span> gap2007) <span class="sc">|&gt;</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_rbind</span>()</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(null_by_cont_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
@@ -374,57 +368,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculating P-Values per continent </span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>pvals_tbl <span class="ot">&lt;-</span> null_by_cont_tbl <span class="sc">|&gt;</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">|&gt;</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#obs_slope = first(obs_slope), </span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">#p_value = mean(abs(perm_slope) &gt;= abs(obs_slope))</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_value =</span> <span class="fu">mean</span>(perm_slope <span class="sc">&gt;=</span> obs_slope)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>pvals_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculating P-Values per continent </span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>pvals_tbl <span class="ot">&lt;-</span> null_by_cont_tbl <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">|&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_value =</span> <span class="fu">mean</span>(<span class="fu">abs</span>(perm_slope) <span class="sc">&gt;=</span> <span class="fu">abs</span>(obs_slope)),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>pvals_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   continent p_value
   &lt;fct&gt;       &lt;dbl&gt;
-1 Africa      0.004
-2 Americas    0    
-3 Asia        0    
-4 Europe      0    
-5 Oceania     0.482</code></pre>
+1 Africa     0.004 
+2 Americas   0.007 
+3 Asia       0.0005
+4 Europe     0     
+5 Oceania    0.482 </code></pre>
 </div>
 </div>
-<p>The permutation results show that the relationship between life expectancy and GDP per capita is statistically significant in Africa, Asia, the Americas, and Europe. The effect in Africa is far smaller which may indicate that economic development does not translate into health outcomes as consistently there as it does in other parts of the world. Oceania shows a non-significant results because only two countries are present, making any estimate unstable. Overall, the analysis suggests that while income and health are positively related worldwide, the strength of this relationship varies by region.</p>
+<p>The above table represents the null distribution through permutation. I calculated a two-sided p-value for each continent to test if the observed slope between GDP per capita and life expectancy was different from zero. The p-value above represents the proportion of permuted slopes whose absolute value was at least as large as the observed slope. This provides a measurement for how extreme the observed relationship is relative to what would be expected by complete chance. The results show quite small p-values for Africa, the Americas, Asia, and Europe. This indicates strong evidence of a real positive association. Oceania’s higher p-value suggests no statistically significant relationship, almost certainly due to its small sample size. Overall, the analysis suggests that while income and health are positively related worldwide, the strength of this relationship varies by region.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plotting -- Faceted null distribution plots </span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>obs_slopes <span class="ot">&lt;-</span> gap2007 <span class="sc">|&gt;</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">|&gt;</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">obs_slope =</span> <span class="fu">coef</span>(<span class="fu">lm</span>(gdpPercap <span class="sc">~</span> lifeExp))[<span class="dv">2</span>], <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> null_by_cont_tbl,</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> perm_slope),</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">bins =</span> <span class="dv">40</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"white"</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span>  </span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> obs_slopes,</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">xintercept =</span> obs_slope),</span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linewidth =</span> .<span class="dv">8</span></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> continent, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Permutation Test: Null Distribution of Slopes by Continent"</span>,</span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Red line = observed slope; histogram = null slopes (lifeExp shuffled)"</span>,</span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Permuted slopes"</span>, <span class="at">y =</span> <span class="st">"Count"</span></span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plotting -- Faceted null distribution plots </span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>obs_slopes <span class="ot">&lt;-</span> gap2007 <span class="sc">|&gt;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">|&gt;</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">obs_slope =</span> <span class="fu">coef</span>(<span class="fu">lm</span>(gdpPercap <span class="sc">~</span> lifeExp))[<span class="dv">2</span>], <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> null_by_cont_tbl,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> perm_slope),</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">bins =</span> <span class="dv">40</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"white"</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span>  </span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> obs_slopes,</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">xintercept =</span> obs_slope),</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linewidth =</span> .<span class="dv">8</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> continent, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Permutation Test: Null Distribution of Slopes by Continent"</span>,</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Red line = observed slope; histogram = null slopes (lifeExp shuffled)"</span>,</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Permuted slopes"</span>, <span class="at">y =</span> <span class="st">"Count"</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -436,7 +429,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The histograms show slopes expected by chance if life expectancy and GDP were unrelated, while the red lines show the true slopes. In Asia, Europe, and the Americas, the observed slopes fall far outside the null distributions, indicating a strong real relationship. Africa shows a weaker but still significant effect. Oceania does not show significance because it includes only two countries, making its estimate unreliable.</p>
 <p>Conclusion:</p>
-<p>This simulation study provides strong evidence of a positive relationship between life expectancy and GDP per capita worldwide. However, this strength of correlation is dependent on region. Europe, Asia and the Americas show a strong and significant relationship. Africa shows a weaker, yet still significant connection. Oceania’s results are not meaningfull due to having only two countries in the dataset. Overall, economic development and improved health outcomes appear linked globally, but the degree of the link is highly dependent on regional context.</p>
+<p>This analysis provides evidence that, in the broader population of countries represented in the 2007 Gapminder data, GDP per capita and life expectancy are positively associated. By using a permutation test, I generated a null distribution that represents what slopes would look like should the two variables be completely unrelated. Meaning that the act of generating GDP per capita was independent of life expectancy. I then compared the observed slopes to this null distribution by calculating two-sided p-values for each continent to assess whether the relationships observed could potentially have arisen by some random variation.</p>
+<p>The results show statistically significant positive associations in the Americas, Africa, Asia, and Europe. Showing that higher income levels correspond to longer average lifespans. Oceania, with only two countries represented, does not indicate a significant relationship due to the insufficient data. These findings suggest that while economic development and public health are strongly linked globally, the strength of this connection depends on regional context. Importantly, the conclusions extend beyond the specific 2007 dataset. They provide evidence that, in the larger population of nations, life expectancy and GDP per capita are not independent but systematically related.</p>
 
 
 </main>  
