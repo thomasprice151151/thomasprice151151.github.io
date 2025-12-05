@@ -2,7 +2,9 @@
 title: "Racial Disparities in Police Search Practices Across Three California Cities"
 subtitle: "A comparative analysis of racial disparities in police search practices across three major California cities."
 description: |
-  In this project, I will use traffic stop data collected from California Police agencies. The cities I look to examine are San Francisco, San Diego, and San Jose. The goal is to examine racial inequities and disparities in search behavior and contraband "hit" rates. I initially planned to compare Los Angeles as well; however, LA was underreported and did not contain key information like the driver's race. Through the use of SQL, I compare stop rates, specifically how different races are searched after a stop, and how frequently those searches actually find contraband. Next, I contrast patterns across cities to see whether some agencies search more aggressively but with lower success rates. The ultimate goal is to understand if search practices are applied evenly across racial groups and jurisdictions.
+  In this project, I use traffic stop data collected from California police agencies to analyze racial disparities in search behavior and contraband “hit” rates. The analysis focuses on three cities, San Francisco, San Diego, and San Jose, which provide complete and comparable datasets. Los Angeles was initially considered but excluded due to missing race data. Using SQL, I calculate stop-based and search-based proportions to examine how often drivers of different races are searched after being stopped, and how frequently those searches result in the discovery of contraband. I then compare patterns across cities to assess whether some police departments search more frequently but with lower success rates.
+
+  For this analysis, search rate is defined as the number of searches divided by the total number of stops, and hit rate is the number of searches that found contraband divided by the total number of searches. These two measures have different denominators, so comparing them directly without context can be misleading.
 
 format:
   html:
@@ -74,8 +76,8 @@ SELECT
     'San Francisco' AS city,
     subject_race,
     COUNT(*) AS n_stops,
-    AVG(search_conducted = 1) AS search_rate,
-    AVG(CASE WHEN search_conducted = 1 THEN contraband_found = 1 END) AS hit_rate
+    100 * AVG(search_conducted = 1) AS search_rate,
+    100 * AVG(CASE WHEN search_conducted = 1 THEN contraband_found = 1 END) AS hit_rate
 FROM ca_san_francisco_2020_04_01
 WHERE subject_race IS NOT NULL
 GROUP BY subject_race
@@ -86,8 +88,8 @@ SELECT
     'San Diego' AS city,
     subject_race,
     COUNT(*) AS n_stops,
-    AVG(search_conducted = 1) AS search_rate,
-    AVG(CASE WHEN search_conducted = 1 THEN contraband_found = 1 END) AS hit_rate
+    100 * AVG(search_conducted = 1) AS search_rate,
+    100 * AVG(CASE WHEN search_conducted = 1 THEN contraband_found = 1 END) AS hit_rate
 FROM ca_san_diego_2020_04_01
 WHERE subject_race IS NOT NULL
 GROUP BY subject_race
@@ -98,8 +100,8 @@ SELECT
     'San Jose' AS city,
     subject_race,
     COUNT(*) AS n_stops,
-    AVG(search_conducted = 1) AS search_rate,
-    AVG(CASE WHEN search_conducted = 1 THEN contraband_found = 1 END) AS hit_rate
+    100 * AVG(search_conducted = 1) AS search_rate,
+    100 * AVG(CASE WHEN search_conducted = 1 THEN contraband_found = 1 END) AS hit_rate
 FROM ca_san_jose_2020_04_01
 WHERE subject_race IS NOT NULL
 GROUP BY subject_race
@@ -140,8 +142,7 @@ ggplot(rates_clean, aes(x = subject_race, y = search_rate, fill = city)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
-The figure above compares the likelihood that officers searched drivers from different racial groups across the three cities. What is clear is that the search rate varies significantly by race. In all three cities, Latino and Black drivers were searched at significantly higher rates than White and Asian drivers. These results help suggest that the decision to stop and search drivers is not uniformly applied across racial groups. Furthermore, the data seems skewed because San Jose has higher hit rates across all racial groups. This does not mean that individuals in San Jose are more likely to merit searches; instead, it reflects systematic differences in policing practices and reporting standards. San Jose likely documents searches more frequently and consistently or, more plausibly, operates under a system that has policies to increase the number of searches per stop. 
-
+The figure above compares the percent of drivers who were searched drivers from different racial groups across the three cities. What is clear is that the search rate varies notably by race. In all three cities, Latino and Black drivers were searched at substantially higher rates than White and Asian drivers. These results help suggest that the decision to stop and search drivers is not uniformly applied across racial groups. Furthermore, the data seems skewed because San Jose has higher hit rates across all racial groups. This does not mean that individuals in San Jose are more likely to merit searches; instead, it reflects systematic differences in policing practices and reporting standards. San Jose likely documents searches more frequently and consistently or, more plausibly, operates under a system that has policies to increase the number of searches per stop. Additionally, the discrepancy could reflect differences in reporting practices rather than actual behavioral differences among officers.
 
 Visualization 2: Hit rates of contraband found by race 
 ```{r}
@@ -157,7 +158,7 @@ ggplot(rates_clean, aes(x = subject_race, y = hit_rate, fill = city)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ```
-The contribution hit rate seen above shows significant differences in search effectiveness across the three cities. San Francisco consistently has the highest hit rates across racial groups, which suggests that its officers conduct fewer but far more targeted searches. San Jose conducts far more searches but has only mid-level hit rates, indicating a lower threshold for initiating searches that frequently do not result in contraband. San Diego has the lowest hit rates overall, which implies that many searches in the city are not based on strong suspicion. As a takeaway, it seems that San Francisco's searches are far more effective, San Jose's are more frequent but less productive, and San Diego's are both infrequent and largely unsuccessful. Overall, this plot highlights how policing strategies are highly varied and city-dependent, even when they all operate in the same state. 
+The hit rate plot above shows differences in search effectiveness across cities. San Francisco has moderate hit rates relative to the other cities, suggesting neither especially high nor low search effectiveness. San Jose conducts far more searches but has only mid-level hit rates, indicating a lower threshold for initiating searches that frequently do not result in contraband. San Diego has the lowest hit rates overall, which implies that many searches in the city are not based on strong suspicion. As a takeaway, it seems that San Francisco's searches are far more effective, San Jose's are more frequent but less productive, and San Diego's are both infrequent and largely unsuccessful. City-level differences may reflect variations in overall policy, training, or reporting practices rather than true differences in effectiveness or success. Overall, this plot highlights how policing strategies are highly varied and city-dependent, even when they all operate in the same state. 
 
 
 Visualization 3
@@ -190,17 +191,17 @@ ggplot(rates_eff, aes(x = search_rate_pct,
   theme(plot.title = element_text(size = 14, face = "bold"))
 
 ```
+Note: Search rate = % of drivers searched; Hit rate = % of searches that found contraband.
 
 
-
-For this visualization, I was interested in exploring whether some groups are searched more but found with contraband less often. On the contrary, there are some groups that are searched less but found with contraband more. The goal was to help unpack biases that officers may have. The plot compares how different racial groups are searched and how often those searches actually find contributors. San Diego shows both low search rates and low hit rates across all racial groups, which suggests fewer searches overall but simultaneously less efficiency. San Francisco, by contrast, shows moderate search rates paired with higher hit rates, which indicates more targeted, successful searches. San Jose consistently has the highest search rates but only mid-level hit rates. This implies that officers search more often but are way less efficient. 
+For this visualization, I aimed to explore whether some racial groups are searched more frequently yet found with contraband less often. Conversely, some groups are searched less frequently but yield higher contraband “hit” rates. The goal was to uncover potential biases or disparities in officers’ decision-making. The plot compares search rates, the percent of drivers who were searched—against hit rates, or the percent of searches that resulted in contraband. San Diego shows both low search rates and low hit rates across all racial groups, suggesting fewer searches overall but also lower efficiency. San Francisco, by contrast, displays moderate search rates paired with higher hit rates, indicating more targeted and successful searches. Notably, San Francisco shows much higher hit rates for Asian American drivers than for Black drivers, which may point to racial profiling or a lower threshold of suspicion when deciding to search Black drivers. San Jose consistently has the highest search rates but only moderate hit rates, implying that officers conduct more searches overall but with lower effectiveness. 
 
 
 Conclusion- 
 
-Across San Francisco, San Diego and San Jose, the data above highlights clear racial disparities when it comes to the frequency of drivers being searched and how effective those searches are. Cities have stark differences in regards to search intensity as well as efficiency. San Francisco for example, conducts fewer yet more targeted searches. Where San Jose searches far more often but with lower sucess rates. 
+Across San Francisco, San Diego and San Jose, the data above highlights clear racial disparities when it comes to the frequency of drivers being searched and how effective those searches are. Cities have stark differences in regards to search intensity as well as efficiency. San Francisco for example, conducts fewer yet more targeted searches. Where San Jose searches far more often but with lower success rates. 
 
-Togather, these results help suggest that policing stratagies and potential biases vary substantially across police jurisdictions. This helps underscore the need for consistant statewide oversight that involves data driven policy reform. 
+Together, these results help suggest that policing strategies and potential biases vary substantially across police jurisdictions. This helps underscore the need for consistent statewide oversight that involves data driven policy reform. 
 
 
 

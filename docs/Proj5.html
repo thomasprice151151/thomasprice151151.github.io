@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="In this project, I will use traffic stop data collected from California Police agencies. The cities I look to examine are San Francisco, San Diego, and San Jose. The goal is to examine racial inequities and disparities in search behavior and contraband “hit” rates. I initially planned to compare Los Angeles as well; however, LA was underreported and did not contain key information like the driver’s race. Through the use of SQL, I compare stop rates, specifically how different races are searched after a stop, and how frequently those searches actually find contraband. Next, I contrast patterns across cities to see whether some agencies search more aggressively but with lower success rates. The ultimate goal is to understand if search practices are applied evenly across racial groups and jurisdictions.">
+<meta name="description" content="In this project, I use traffic stop data collected from California police agencies to analyze racial disparities in search behavior and contraband “hit” rates. The analysis focuses on three cities, San Francisco, San Diego, and San Jose, which provide complete and comparable datasets. Los Angeles was initially considered but excluded due to missing race data. Using SQL, I calculate stop-based and search-based proportions to examine how often drivers of different races are searched after being stopped, and how frequently those searches result in the discovery of contraband. I then compare patterns across cities to assess whether some police departments search more frequently but with lower success rates.For this analysis, search rate is defined as the number of searches divided by the total number of stops, and hit rate is the number of searches that found contraband divided by the total number of searches. These two measures have different denominators, so comparing them directly without context can be misleading.">
 
 <title>Racial Disparities in Police Search Practices Across Three California Cities – Thomas Price</title>
 <style>
@@ -192,7 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div>
   <div class="description">
-    <p>In this project, I will use traffic stop data collected from California Police agencies. The cities I look to examine are San Francisco, San Diego, and San Jose. The goal is to examine racial inequities and disparities in search behavior and contraband “hit” rates. I initially planned to compare Los Angeles as well; however, LA was underreported and did not contain key information like the driver’s race. Through the use of SQL, I compare stop rates, specifically how different races are searched after a stop, and how frequently those searches actually find contraband. Next, I contrast patterns across cities to see whether some agencies search more aggressively but with lower success rates. The ultimate goal is to understand if search practices are applied evenly across racial groups and jurisdictions.</p>
+    <p>In this project, I use traffic stop data collected from California police agencies to analyze racial disparities in search behavior and contraband “hit” rates. The analysis focuses on three cities, San Francisco, San Diego, and San Jose, which provide complete and comparable datasets. Los Angeles was initially considered but excluded due to missing race data. Using SQL, I calculate stop-based and search-based proportions to examine how often drivers of different races are searched after being stopped, and how frequently those searches result in the discovery of contraband. I then compare patterns across cities to assess whether some police departments search more frequently but with lower success rates.</p>
+    <p>For this analysis, search rate is defined as the number of searches divided by the total number of stops, and hit rate is the number of searches that found contraband divided by the total number of searches. These two measures have different denominators, so comparing them directly without context can be misleading.</p>
   </div>
 </div>
 <div class="quarto-title-meta">
@@ -640,8 +641,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'San Francisco'</span> <span class="kw">AS</span> city,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    subject_race,</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> n_stops,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(search_conducted <span class="op">=</span> <span class="dv">1</span>) <span class="kw">AS</span> search_rate,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> search_conducted <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> contraband_found <span class="op">=</span> <span class="dv">1</span> <span class="cf">END</span>) <span class="kw">AS</span> hit_rate</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="dv">100</span> <span class="op">*</span> <span class="fu">AVG</span>(search_conducted <span class="op">=</span> <span class="dv">1</span>) <span class="kw">AS</span> search_rate,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">100</span> <span class="op">*</span> <span class="fu">AVG</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> search_conducted <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> contraband_found <span class="op">=</span> <span class="dv">1</span> <span class="cf">END</span>) <span class="kw">AS</span> hit_rate</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> ca_san_francisco_2020_04_01</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> subject_race <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> subject_race</span>
@@ -652,8 +653,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'San Diego'</span> <span class="kw">AS</span> city,</span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    subject_race,</span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> n_stops,</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(search_conducted <span class="op">=</span> <span class="dv">1</span>) <span class="kw">AS</span> search_rate,</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> search_conducted <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> contraband_found <span class="op">=</span> <span class="dv">1</span> <span class="cf">END</span>) <span class="kw">AS</span> hit_rate</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="dv">100</span> <span class="op">*</span> <span class="fu">AVG</span>(search_conducted <span class="op">=</span> <span class="dv">1</span>) <span class="kw">AS</span> search_rate,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="dv">100</span> <span class="op">*</span> <span class="fu">AVG</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> search_conducted <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> contraband_found <span class="op">=</span> <span class="dv">1</span> <span class="cf">END</span>) <span class="kw">AS</span> hit_rate</span>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> ca_san_diego_2020_04_01</span>
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> subject_race <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> subject_race</span>
@@ -664,8 +665,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">'San Jose'</span> <span class="kw">AS</span> city,</span>
 <span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    subject_race,</span>
 <span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> n_stops,</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(search_conducted <span class="op">=</span> <span class="dv">1</span>) <span class="kw">AS</span> search_rate,</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> search_conducted <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> contraband_found <span class="op">=</span> <span class="dv">1</span> <span class="cf">END</span>) <span class="kw">AS</span> hit_rate</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="dv">100</span> <span class="op">*</span> <span class="fu">AVG</span>(search_conducted <span class="op">=</span> <span class="dv">1</span>) <span class="kw">AS</span> search_rate,</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    <span class="dv">100</span> <span class="op">*</span> <span class="fu">AVG</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> search_conducted <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> contraband_found <span class="op">=</span> <span class="dv">1</span> <span class="cf">END</span>) <span class="kw">AS</span> hit_rate</span>
 <span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> ca_san_jose_2020_04_01</span>
 <span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> subject_race <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
 <span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> subject_race</span>
@@ -680,21 +681,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>            city           subject_race n_stops search_rate hit_rate
-1      San Diego asian/pacific islander   32541      0.0280   0.1044
-2      San Diego                  black   42705      0.0907   0.0932
-3      San Diego               hispanic  117083      0.0555   0.0812
-4      San Diego                  other   27238      0.0166   0.0953
-5      San Diego                  white  162226      0.0278   0.1149
-6  San Francisco asian/pacific islander  157684      0.0181   0.3611
-7  San Francisco                  black  152196      0.1552   0.0924
-8  San Francisco               hispanic  116014      0.0987   0.1018
-9  San Francisco                  other  106858      0.0351   0.2032
-10 San Francisco                  white  372318      0.0314   0.2421
-11      San Jose asian/pacific islander   16062      0.1352   0.1800
-12      San Jose                  black   13538      0.3280   0.1867
-13      San Jose               hispanic   79885      0.3420   0.1571
-14      San Jose                  other   11523      0.1768   0.2274
-15      San Jose                  white   26341      0.2454   0.1984</code></pre>
+1      San Diego asian/pacific islander   32541      2.7965  10.4396
+2      San Diego                  black   42705      9.0692   9.3209
+3      San Diego               hispanic  117083      5.5525   8.1218
+4      San Diego                  other   27238      1.6558   9.5344
+5      San Diego                  white  162226      2.7801  11.4856
+6  San Francisco asian/pacific islander  157684      1.8144  36.1063
+7  San Francisco                  black  152196     15.5208   9.2414
+8  San Francisco               hispanic  116014      9.8652  10.1791
+9  San Francisco                  other  106858      3.5056  20.3150
+10 San Francisco                  white  372318      3.1444  24.2077
+11      San Jose asian/pacific islander   16062     13.5161  18.0046
+12      San Jose                  black   13538     32.7989  18.6676
+13      San Jose               hispanic   79885     34.1980  15.7087
+14      San Jose                  other   11523     17.6834  22.7446
+15      San Jose                  white   26341     24.5407  19.8409</code></pre>
 </div>
 </div>
 <p>Cleaning the data in order to visualize</p>
@@ -733,7 +734,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The figure above compares the likelihood that officers searched drivers from different racial groups across the three cities. What is clear is that the search rate varies significantly by race. In all three cities, Latino and Black drivers were searched at significantly higher rates than White and Asian drivers. These results help suggest that the decision to stop and search drivers is not uniformly applied across racial groups. Furthermore, the data seems skewed because San Jose has higher hit rates across all racial groups. This does not mean that individuals in San Jose are more likely to merit searches; instead, it reflects systematic differences in policing practices and reporting standards. San Jose likely documents searches more frequently and consistently or, more plausibly, operates under a system that has policies to increase the number of searches per stop.</p>
+<p>The figure above compares the percent of drivers who were searched drivers from different racial groups across the three cities. What is clear is that the search rate varies notably by race. In all three cities, Latino and Black drivers were searched at substantially higher rates than White and Asian drivers. These results help suggest that the decision to stop and search drivers is not uniformly applied across racial groups. Furthermore, the data seems skewed because San Jose has higher hit rates across all racial groups. This does not mean that individuals in San Jose are more likely to merit searches; instead, it reflects systematic differences in policing practices and reporting standards. San Jose likely documents searches more frequently and consistently or, more plausibly, operates under a system that has policies to increase the number of searches per stop. Additionally, the discrepancy could reflect differences in reporting practices rather than actual behavioral differences among officers.</p>
 <p>Visualization 2: Hit rates of contraband found by race</p>
 <div class="cell">
 <details class="code-fold">
@@ -757,7 +758,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The contribution hit rate seen above shows significant differences in search effectiveness across the three cities. San Francisco consistently has the highest hit rates across racial groups, which suggests that its officers conduct fewer but far more targeted searches. San Jose conducts far more searches but has only mid-level hit rates, indicating a lower threshold for initiating searches that frequently do not result in contraband. San Diego has the lowest hit rates overall, which implies that many searches in the city are not based on strong suspicion. As a takeaway, it seems that San Francisco’s searches are far more effective, San Jose’s are more frequent but less productive, and San Diego’s are both infrequent and largely unsuccessful. Overall, this plot highlights how policing strategies are highly varied and city-dependent, even when they all operate in the same state.</p>
+<p>The hit rate plot above shows differences in search effectiveness across cities. San Francisco has moderate hit rates relative to the other cities, suggesting neither especially high nor low search effectiveness. San Jose conducts far more searches but has only mid-level hit rates, indicating a lower threshold for initiating searches that frequently do not result in contraband. San Diego has the lowest hit rates overall, which implies that many searches in the city are not based on strong suspicion. As a takeaway, it seems that San Francisco’s searches are far more effective, San Jose’s are more frequent but less productive, and San Diego’s are both infrequent and largely unsuccessful. City-level differences may reflect variations in overall policy, training, or reporting practices rather than true differences in effectiveness or success. Overall, this plot highlights how policing strategies are highly varied and city-dependent, even when they all operate in the same state.</p>
 <p>Visualization 3</p>
 <div class="cell">
 <details class="code-fold">
@@ -797,10 +798,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>For this visualization, I was interested in exploring whether some groups are searched more but found with contraband less often. On the contrary, there are some groups that are searched less but found with contraband more. The goal was to help unpack biases that officers may have. The plot compares how different racial groups are searched and how often those searches actually find contributors. San Diego shows both low search rates and low hit rates across all racial groups, which suggests fewer searches overall but simultaneously less efficiency. San Francisco, by contrast, shows moderate search rates paired with higher hit rates, which indicates more targeted, successful searches. San Jose consistently has the highest search rates but only mid-level hit rates. This implies that officers search more often but are way less efficient.</p>
+<p>Note: Search rate = % of drivers searched; Hit rate = % of searches that found contraband.</p>
+<p>For this visualization, I aimed to explore whether some racial groups are searched more frequently yet found with contraband less often. Conversely, some groups are searched less frequently but yield higher contraband “hit” rates. The goal was to uncover potential biases or disparities in officers’ decision-making. The plot compares search rates, the percent of drivers who were searched—against hit rates, or the percent of searches that resulted in contraband. San Diego shows both low search rates and low hit rates across all racial groups, suggesting fewer searches overall but also lower efficiency. San Francisco, by contrast, displays moderate search rates paired with higher hit rates, indicating more targeted and successful searches. Notably, San Francisco shows much higher hit rates for Asian American drivers than for Black drivers, which may point to racial profiling or a lower threshold of suspicion when deciding to search Black drivers. San Jose consistently has the highest search rates but only moderate hit rates, implying that officers conduct more searches overall but with lower effectiveness.</p>
 <p>Conclusion-</p>
-<p>Across San Francisco, San Diego and San Jose, the data above highlights clear racial disparities when it comes to the frequency of drivers being searched and how effective those searches are. Cities have stark differences in regards to search intensity as well as efficiency. San Francisco for example, conducts fewer yet more targeted searches. Where San Jose searches far more often but with lower sucess rates.</p>
-<p>Togather, these results help suggest that policing stratagies and potential biases vary substantially across police jurisdictions. This helps underscore the need for consistant statewide oversight that involves data driven policy reform.</p>
+<p>Across San Francisco, San Diego and San Jose, the data above highlights clear racial disparities when it comes to the frequency of drivers being searched and how effective those searches are. Cities have stark differences in regards to search intensity as well as efficiency. San Francisco for example, conducts fewer yet more targeted searches. Where San Jose searches far more often but with lower success rates.</p>
+<p>Together, these results help suggest that policing strategies and potential biases vary substantially across police jurisdictions. This helps underscore the need for consistent statewide oversight that involves data driven policy reform.</p>
 <p>Sources Cited:</p>
 <p>Pierson, Emma, et al.&nbsp;“A Large-Scale Analysis of Racial Disparities in Police Stops Across the United States.” Nature Human Behaviour, 2020. Data from: Stanford Open Policing Project (https://openpolicing.stanford.edu ).</p>
 <p><a href="https://openpolicing.stanford.edu/news/">image source: OpenPolicing</a></p>

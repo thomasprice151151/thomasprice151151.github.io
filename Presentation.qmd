@@ -30,7 +30,7 @@ Return back to the main website through this [link](https://thomasprice151151.gi
 
 **Goal: **
 
-Analyze how Barack Obama and Donald Turmp used Twitter as communication tools during their presidencies. 
+Analyze how Barack Obama and Donald Trump used Twitter as communication tools during their presidencies. 
 
 ::: footer
 Return back to the main website through this [link](https://thomasprice151151.github.io/).
