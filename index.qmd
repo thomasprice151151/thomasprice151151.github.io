@@ -27,7 +27,7 @@ about:
 
 format:
   html:
-    theme: mint
+    theme: flatly
     toc: true
 ---
 

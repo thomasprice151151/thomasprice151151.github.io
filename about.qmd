@@ -13,6 +13,11 @@ about:
       href: https://github.com/thomasprice151151
     - text: Email
       href: mailto:tprice@students.pitzer.edu
+      
+format:
+  html:
+    theme: flatly
+    toc: true
 ---
 
 ## Bio
@@ -34,9 +39,9 @@ Hi, I’m Thomas Price, a senior at Pitzer College majoring in International Pol
 
 ## Contact
 
-Feel free to connect with me: [LinkedIn](https://www.linkedin.com/in/thomas-price-tprice/) \| [GitHub](https://github.com/thomasprice151151) \| [Email](mailto:tprice@students.pitzer.edu) \| [Resume](Price_Resume .docx)
+Feel free to connect with me: [LinkedIn](https://www.linkedin.com/in/thomas-price-tprice/) \| [GitHub](https://github.com/thomasprice151151) \| [Email](mailto:tprice@students.pitzer.edu) \| [Resume](Price_Resume%20.docx)
 
----
+------------------------------------------------------------------------
 
 ```         
 ```
