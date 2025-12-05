@@ -18,9 +18,9 @@ website:
           - href: billboard_t100.qmd
             text: Visualizing the Billboard Top 100 
           - href: Proj2.qmd
-            text: Analysis of Obama's Tweets
+            text: Analysis of Obama and Trump's Tweets
           - href: simulation.qmd
-            text: Permutation Test:GDP and Life Expectancy
+            text: Testing GDP and Life Expectancy
           - href: Ethics_Blog.qmd
             text: Analysis of Data Ethics 
           - href: Proj5.qmd
